@@ -3,6 +3,7 @@
 ;; Disable toolbar and  menubar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(toggle-scroll-bar -1)
 
 ;; Disable welcome screen
 (setq inhibit-startup-screen t)
@@ -22,6 +23,10 @@
 
 ;; 4 spaces for a tab in CC mode
 (setq-default c-basic-offset 4)
+
+;; Transparent
+;; (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+;; (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
 ;; Load modules
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))

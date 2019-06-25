@@ -17,10 +17,32 @@
   :config
   (load-theme 'base16-tomorrow-night t))
 
-(require 'init-evil)
+(use-package helm
+  :config
+  (helm-mode 1))
 
-(require 'init-company)
+(use-package evil-leader
+  :config
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key
+    "f" 'helm-find-files
+    "b" 'helm-buffers-list
+    "k" 'kill-buffer
+    "n" 'next-buffer
+    "N" 'previous-buffer)
+  (global-evil-leader-mode))
 
-(require 'init-flycheck)
+(use-package evil
+  :config
+  (require 'evil)
+  (evil-mode 1))
+
+(use-package company
+  :init
+  (global-company-mode))
+
+(use-package flycheck
+  :init
+  (global-flycheck-mode))
 
 (provide 'init-elpa)

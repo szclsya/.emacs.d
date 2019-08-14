@@ -24,11 +24,33 @@
 ;; 4 spaces for a tab in CC mode
 (setq-default c-basic-offset 4)
 
+;; highlight end of bracket
+(show-paren-mode 1)
+
 ;; Transparent
 ;; (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
 ;; (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
+;; C++ stuff
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
 ;; Load modules
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+;; Set theme stuff on emacs daemon
+(load-theme 'wheatgrass t t)
+
+(defun szclsya/init-theme (frame)
+  (select-frame frame)
+  (if (window-system frame)
+      (progn
+	(disable-theme 'wheatgrass)
+      	(enable-theme 'base16-tomorrow-night))
+    (progn
+      (disable-theme 'base16-tomorrow-night)
+      (enable-theme 'wheatgrass))))
+
+(add-hook 'after-make-frame-functions 'szclsya/init-theme)
+
 (require 'init-elpa)

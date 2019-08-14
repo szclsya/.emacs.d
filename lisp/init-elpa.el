@@ -15,11 +15,13 @@
 
 (use-package base16-theme
   :config
-  (load-theme 'base16-tomorrow-night t))
+    (load-theme 'base16-tomorrow-night t)
+)
 
 (use-package helm
   :config
-  (helm-mode 1))
+  (require 'helm-config)
+  (global-set-key (kbd "M-x") 'helm-M-x))
 
 (use-package evil-leader
   :config
@@ -46,11 +48,24 @@
   (global-flycheck-mode))
 
 (use-package web-mode
-	     :config
-	     (setq web-mode-markup-indent-offset 2)
-	     (setq web-mode-css-indent-offset 2)
-	     (setq web-mode-code-indent-offset 2))
+  :config
+  (require 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-enable-auto-pairing t))
+
+(use-package js2-mode)
 
 (use-package sass-mode)
+
+(use-package rust-mode)
+
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+(use-package color-theme-sanityinc-tomorrow)
 
 (provide 'init-elpa)

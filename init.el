@@ -53,10 +53,10 @@
 
 (add-hook 'after-make-frame-functions 'szclsya/init-theme)
 
-;; Org-mode code block fix
-(setq org-src-preserve-indentation nil
-      org-edit-src-content-indentation 0)
+;; Org-mode stuff
+(require 'init-org)
 
 ;; A temporary fix for GNU ELPA failure
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (require 'init-elpa)
+

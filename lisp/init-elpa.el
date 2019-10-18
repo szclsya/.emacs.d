@@ -47,6 +47,10 @@
   :init
   (global-flycheck-mode))
 
+(use-package flyspell
+  :config
+  (setq flyspell-issue-message-flag nil))
+
 (use-package web-mode
   :config
   (require 'web-mode)

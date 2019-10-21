@@ -31,7 +31,8 @@
     "b" 'helm-buffers-list
     "k" 'kill-buffer
     "n" 'next-buffer
-    "N" 'previous-buffer)
+    "N" 'previous-buffer
+    "G" 'org-agenda-list)
   (global-evil-leader-mode))
 
 (use-package evil
@@ -77,6 +78,10 @@
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+(use-package auctex
+  :defer t
+  :ensure t)
 
 (use-package color-theme-sanityinc-tomorrow)
 

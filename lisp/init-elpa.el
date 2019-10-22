@@ -62,6 +62,8 @@
 
 (use-package rust-mode)
 
+(use-package yaml-mode)
+
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)

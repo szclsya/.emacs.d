@@ -21,11 +21,14 @@
 ;; Enable line number dislay
 (global-display-line-numbers-mode)
 
-;; 4 spaces for a tab in CC mode
-(setq-default c-basic-offset 4)
+;; 4 spaces for a tab
+(setq-default tab-width 4)
 
 ;; highlight end of bracket
 (show-paren-mode 1)
+
+;; Don't beep
+(setq visible-bell 1)
 
 ;; Transparent
 ;; (set-frame-parameter (selected-frame) 'alpha '(85 . 50))

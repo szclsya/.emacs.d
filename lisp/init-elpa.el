@@ -38,7 +38,12 @@
 (use-package evil
   :config
   (require 'evil)
-  (evil-mode 1))
+  (evil-mode 1)
+  ;; :q should kill the current buffer rather than quitting emacs entirely
+  (evil-ex-define-cmd "q" 'kill-this-buffer)
+  ;; Need to type out :quit to close emacs
+  (evil-ex-define-cmd "quit" 'evil-quit)
+)
 
 (use-package company
   :init
@@ -89,6 +94,8 @@
   :config (add-hook 'racket-mode-hook
 		    (lambda ()
 		      (define-key racket-mode-map (kbd "<f5>") 'racket-run))))
+
+(use-package graphviz-dot-mode)
 
 (use-package color-theme-sanityinc-tomorrow)
 

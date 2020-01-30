@@ -63,5 +63,8 @@
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (require 'init-elpa)
 
-;; LaTeX stuff
+(require 'init-evil)
 (require 'init-tex)
+(require 'init-racket)
+
+;;; init.el ends here

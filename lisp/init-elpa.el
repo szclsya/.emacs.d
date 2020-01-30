@@ -90,11 +90,6 @@
   :defer t
   :ensure t)
 
-(use-package racket-mode
-  :config (add-hook 'racket-mode-hook
-		    (lambda ()
-		      (define-key racket-mode-map (kbd "<f5>") 'racket-run))))
-
 (use-package graphviz-dot-mode)
 
 (use-package color-theme-sanityinc-tomorrow)

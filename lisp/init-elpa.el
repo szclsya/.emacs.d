@@ -18,36 +18,21 @@
     (load-theme 'base16-tomorrow-night t)
 )
 
-(use-package helm
-  :config
-  (require 'helm-config)
-  (global-set-key (kbd "M-x") 'helm-M-x))
-
-(use-package evil-leader
-  :config
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key
-    "f" 'helm-find-files
-    "b" 'helm-buffers-list
-    "k" 'kill-buffer
-    "n" 'next-buffer
-    "N" 'previous-buffer
-    "G" 'org-agenda-list)
-  (global-evil-leader-mode))
-
-(use-package evil
-  :config
-  (require 'evil)
-  (evil-mode 1)
-  ;; :q should kill the current buffer rather than quitting emacs entirely
-  (evil-ex-define-cmd "q" 'kill-this-buffer)
-  ;; Need to type out :quit to close emacs
-  (evil-ex-define-cmd "quit" 'evil-quit)
-)
+;; (use-package helm
+;;   :config
+;;   (require 'helm-config)
+;;   (global-set-key (kbd "M-x") 'helm-M-x))
 
 (use-package company
   :init
   (global-company-mode))
+
+(use-package smex
+  :config
+  (require 'smex)
+  (smex-initialize)
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands))
 
 (use-package flycheck
   :init

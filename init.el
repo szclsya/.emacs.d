@@ -63,8 +63,10 @@
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (require 'init-elpa)
 
-(require 'init-evil)
+(require 'init-ivy)
 (require 'init-tex)
 (require 'init-racket)
+(require 'init-evil)
+(require 'init-elfeed)
 
 ;;; init.el ends here

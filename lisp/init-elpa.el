@@ -71,11 +71,11 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(use-package auctex
-  :defer t
-  :ensure t)
-
 (use-package graphviz-dot-mode)
+
+(use-package elvish-mode)
+
+(use-package telega)
 
 (use-package color-theme-sanityinc-tomorrow)
 

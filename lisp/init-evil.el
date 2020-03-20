@@ -2,7 +2,7 @@
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
-    "f" 'counsel-find-file
+    "f" 'find-file
     "b" 'ivy-switch-buffer
     "k" 'kill-buffer
     "n" 'next-buffer

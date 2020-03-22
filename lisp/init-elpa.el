@@ -75,8 +75,6 @@
 
 (use-package elvish-mode)
 
-(use-package telega)
-
 (use-package color-theme-sanityinc-tomorrow)
 
 (provide 'init-elpa)

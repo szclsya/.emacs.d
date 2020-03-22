@@ -68,5 +68,6 @@
 (require 'init-racket)
 (require 'init-evil)
 (require 'init-elfeed)
+(require 'init-telega)
 
 ;;; init.el ends here

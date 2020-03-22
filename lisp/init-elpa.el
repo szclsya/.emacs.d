@@ -27,6 +27,17 @@
   :init
   (global-company-mode))
 
+(use-package lsp-mode
+  :hook (XXX-mode . lsp-deferred)
+  :commands (lsp lsp-deferred))
+
+(use-package company-lsp :commands company-lsp)
+
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+(use-package rust-mode)
+
 (use-package smex
   :config
   (require 'smex)
@@ -37,6 +48,11 @@
 (use-package flycheck
   :init
   (global-flycheck-mode))
+
+(use-package flycheck-rust
+  :config (with-eval-after-load 'rust-mode
+			(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+)
 
 (use-package flyspell
   :config

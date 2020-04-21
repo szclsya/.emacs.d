@@ -36,6 +36,7 @@
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
+
 (use-package rust-mode)
 
 (use-package smex
@@ -73,6 +74,14 @@
 
 (use-package rust-mode)
 
+(use-package irony
+  :config
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
 (use-package yaml-mode)
 
 (use-package markdown-mode
@@ -90,6 +99,8 @@
 (use-package graphviz-dot-mode)
 
 (use-package elvish-mode)
+
+(use-package cmake-mode)
 
 (use-package color-theme-sanityinc-tomorrow)
 

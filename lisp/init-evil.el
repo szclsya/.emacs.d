@@ -31,7 +31,17 @@
 		(call-interactively 'evil-window-down))
   "q" 'evil-window-delete
 
+  ;; Org-mode and GTD
   "G" 'org-agenda-list
+  "gg" (lambda ()
+		 (interactive)
+		 (find-file "~/gtd/gtd.org"))
+  "gi" (lambda ()
+		 (interactive)
+		 (find-file "~/gtd/inbox.org"))
+  "gc" 'org-capture
+  "gr" 'org-refile
+  
   "ar" 'elfeed
   "at" 'telega)
 

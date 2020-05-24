@@ -1,3 +1,7 @@
+;;; init-ivy.el --- Ivy configurations -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (setq evil-want-keybinding nil)
 
 (use-package ivy
@@ -12,3 +16,5 @@
   )
 
 (provide 'init-ivy)
+
+;;; init-ivy.el ends here

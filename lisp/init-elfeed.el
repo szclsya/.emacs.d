@@ -1,3 +1,7 @@
+;;; init-elfeed.el --- RSS Feeds and configurations -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (use-package elfeed
   :config
   (setq elfeed-feeds
@@ -12,9 +16,10 @@
 
 		  ("https://viflythink.com/atom.xml" inspiration)
 		  ("https://www.vincehut.top/?feed=atom" inspiration)
-		  ("https://zhihu.com/rss" inspiration)
-		  ))
-  (evil-make-overriding-map elfeed-search-mode-map 'normal)
-)
+		  ("https://zhihu.com/rss" inspiration)))
+
+  (evil-make-overriding-map elfeed-search-mode-map 'normal))
 
 (provide 'init-elfeed)
+
+;;; init-elfeed.el ends here

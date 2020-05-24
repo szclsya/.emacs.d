@@ -31,6 +31,10 @@
 		(call-interactively 'evil-window-down))
   "q" 'evil-window-delete
 
+  ;; Snippets
+  "s" 'yas-expand
+
+  ;; Functional modules
   "G" 'org-agenda-list
   "ar" 'elfeed
   "at" 'telega)

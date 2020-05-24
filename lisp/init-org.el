@@ -2,6 +2,18 @@
 ;;; Commentary:
 ;;; Code:
 
+;; use-package for uniform keymap definition
+(my-leader-def
+  :keymaps 'org-mode-map
+  "og" (lambda ()
+		 (interactive)
+		 (find-file "~/gtd/gtd.org"))
+  "oi" (lambda ()
+		 (interactive)
+		 (find-file "~/gtd/inbox.org"))
+  "oc" 'org-capture
+  "or" 'org-refile)
+
 ;; Org-mode code block fix
 (setq org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)

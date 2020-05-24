@@ -1,3 +1,7 @@
+;;; init-org.el ---  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;; Org-mode code block fix
 (setq org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)
@@ -22,3 +26,5 @@
                            ("~/gtd/tickler.org" :maxlevel . 2)))
 
 (provide 'init-org)
+
+;;; init-org.el ends here

@@ -42,5 +42,6 @@
 (require 'init-telega)
 (require 'init-org)
 (require 'init-yasnippet)
+(require 'init-magit)
 
 ;;; init.el ends here

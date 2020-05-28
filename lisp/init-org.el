@@ -1,10 +1,9 @@
-;;; init-org.el ---  -*- lexical-binding: t; -*-
+;;; init-org.el --- Org-mode and GTD configurations -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
-;; use-package for uniform keymap definition
 (my-leader-def
-  :keymaps 'org-mode-map
+  :keymaps 'normal
   "og" (lambda ()
 		 (interactive)
 		 (find-file "~/gtd/gtd.org"))
@@ -12,7 +11,8 @@
 		 (interactive)
 		 (find-file "~/gtd/inbox.org"))
   "oc" 'org-capture
-  "or" 'org-refile)
+  "or" 'org-refile
+  "od" 'org-todo)
 
 ;; Org-mode code block fix
 (setq org-src-preserve-indentation nil

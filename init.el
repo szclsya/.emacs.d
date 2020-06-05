@@ -44,5 +44,7 @@
 (require 'init-org)
 (require 'init-yasnippet)
 (require 'init-magit)
+(require 'init-neotree)
+(require 'init-projectile)
 
 ;;; init.el ends here

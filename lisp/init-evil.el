@@ -33,6 +33,8 @@
 
   ;; Open functional modules
   "A" 'org-agenda-list
+  "t" 'neotree-toggle
+  "p" 'projectile-command-map
   "ar" 'elfeed
   "at" 'telega)
 

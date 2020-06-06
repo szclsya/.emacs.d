@@ -19,12 +19,6 @@
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
-(use-package company-jedi
-  :config
-  (defun my/python-mode-hook ()
-    (add-to-list 'company-backends 'company-jedi))
-  (add-hook 'python-mode-hook 'my/python-mode-hook))
-
 (provide 'init-company)
 
 ;;; init-company.el ends here

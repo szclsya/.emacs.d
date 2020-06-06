@@ -37,6 +37,7 @@
 (require 'init-racket)
 (require 'init-markdown)
 (require 'init-typescript)
+(require 'init-python)
 
 ;; Functional modules
 (require 'init-elfeed)

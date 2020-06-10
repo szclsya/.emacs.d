@@ -1,3 +1,7 @@
+;;; init-evil.el --- Evil mode configuration -*- lexical-binding: t; -*-
+;;; Commentary: 
+;;; Code:
+
 (use-package general)
 
 (general-create-definer my-leader-def
@@ -44,12 +48,20 @@
   (evil-mode 1)
   ;; :q should kill the current buffer rather than quitting emacs entirely
   (evil-ex-define-cmd "q" 'kill-this-buffer)
-  (evil-ex-define-cmd "wq" 'save-buffer)
+  (evil-ex-define-cmd "wq" (lambda ()
+							 (interactive)
+							 (call-interactively 'save-buffer)
+							 (call-interactively 'kill-this-buffer)))
   ;; Need to type out :quit to close emacs
-  (evil-ex-define-cmd "quit" 'evil-quit))
+  (evil-ex-define-cmd "quit" 'evil-quit)
+
+  ;; Use undo tree on every undo event
+  (define-key evil-normal-state-map (kbd "u") 'undo-tree-visualize))
 
 (use-package evil-collection
   :config
   (evil-collection-init))
 
 (provide 'init-evil)
+
+;;; init-evil.el ends here

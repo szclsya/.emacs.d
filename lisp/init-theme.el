@@ -24,25 +24,21 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-;; Set theme separately for Emacs daemon and Emacs GUI
-(use-package base16-theme
+(use-package all-the-icons)
+
+(use-package doom-themes
   :config
-    (load-theme 'base16-tomorrow-night t))
+  (load-theme 'doom-vibrant t)
+  (doom-themes-neotree-config))
 
-(load-theme 'wheatgrass t t)
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-height 15)
+  (setq doom-modeline-project-detection 'projectile)
+  (setq doom-modeline-env-enable-python t))
 
-(defun szclsya/init-theme (frame)
-  (select-frame frame)
-  (if (window-system frame)
-      (progn
-	(disable-theme 'wheatgrass)
-      	(enable-theme 'base16-tomorrow-night))
-    (progn
-      (disable-theme 'base16-tomorrow-night)
-      (enable-theme 'wheatgrass))))
-
-(add-hook 'after-make-frame-functions 'szclsya/init-theme)
 
 (provide 'init-theme)
-
 ;;; init-theme.el ends here

@@ -18,6 +18,9 @@
 ;; Don't beep
 (setq visible-bell 1)
 
+;; Electric pair mode
+(electric-pair-mode 1)
+ 
 ;; Load modules
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -25,11 +28,10 @@
 
 ;; Necessary features
 (require 'init-elpa)
+(require 'init-theme)
 (require 'init-ivy)
 (require 'init-evil)
-
-;; Eye candy
-(require 'init-theme)
+(require 'init-company)
 
 ;; Language supports
 (require 'init-c)
@@ -47,5 +49,6 @@
 (require 'init-magit)
 (require 'init-neotree)
 (require 'init-projectile)
+(require 'init-pdf-tools)
 
 ;;; init.el ends here

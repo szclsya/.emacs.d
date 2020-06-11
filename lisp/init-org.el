@@ -37,6 +37,11 @@
                            ("~/gtd/someday.org" :level . 1)
                            ("~/gtd/tickler.org" :maxlevel . 2)))
 
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t))) ; this line activates dot
+
 (provide 'init-org)
 
 ;;; init-org.el ends here

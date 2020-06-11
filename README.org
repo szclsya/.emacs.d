@@ -1,0 +1,30 @@
+* Requirements
+Basically you need the usual build stuff and some extra libraries.
+
+** Arch Linux  
+#+BEGIN_SRC bash
+# For pdf-tools
+autoconf automake imagemagick poppler libpng
+
+# For elpy
+python-jedi autopep8 python-autopep8 python-rope python-black
+
+# For Flyspell
+aspell-en
+
+# For telega.el
+#+END_SRC
+
+** openSUSE
+#+BEGIN_SRC bash
+# telega.el
+cmake openssl-devel gperf
+#+END_SRC
+* Full installation
+The Emacs Lisp part should be automatically installed when you fire up Emacs, but to make everything work there're some other stuff needed to be done manually.
+
+** all-the-icons
+Install icons via triggering =M-x all-the-icons-install-fonts=.
+
+** pdf-tools
+PDF tools require a local server. Install via triggering =M-x pdf-tools-install=.

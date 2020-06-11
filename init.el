@@ -21,6 +21,12 @@
 ;; Electric pair mode
 (electric-pair-mode 1)
  
+;; Don't pollute my working dir!
+    (setq backup-directory-alist
+          `((".*" . ,temporary-file-directory)))
+    (setq auto-save-file-name-transforms
+          `((".*" ,temporary-file-directory t)))
+
 ;; Load modules
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

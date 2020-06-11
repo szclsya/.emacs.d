@@ -12,7 +12,12 @@
 
   (define-key ivy-minibuffer-map (kbd "RET") #'ivy-alt-done)
   (dolist (k '("C-j" "C-RET"))
-	(define-key ivy-minibuffer-map (kbd k) #'ivy-immediate-done)))
+	(define-key ivy-minibuffer-map (kbd k) #'ivy-immediate-done))
+  
+  :bind
+  (("M-y" . counsel-yank-pop)
+   :map ivy-minibuffer-map
+   ("M-y" . ivy-next-line)))
 
 ;; For the history feature of smex
 ;; This part will be used automatically by counsel

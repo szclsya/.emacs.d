@@ -2,14 +2,18 @@
 ;;; Commentary:
 ;;; Code:
 
-;; A temporary fix for GNU ELPA failure
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
 ;; Set up environment for use-package
 (package-initialize)
 (require 'package)
-(add-to-list 'package-archives (cons "melpa" "https://melpa.org/packages/") t)
-(add-to-list 'package-archives (cons "melpa-stable" "https://stable.melpa.org/packages/") t)
+
+;; This var will be set in init-local.el
+(if (and (boundp use-chinese-elpa-mirrors) use-chinese-elpa-mirrors)
+	(setq package-archives '(("gnu"   . "https://mirrors.bfsu.edu.cn/elpa/gnu/")
+							 ("melpa" . "https://mirrors.bfsu.edu.cn/elpa/melpa/")
+							 ("melpa-stable" . "https://mirrors.bfsu.edu.cn/elpa/melpa-stable/")))
+  (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+						   ("melpa" . "https://melpa.org/packages/")
+						   ("melpa-stable" . "https://stable.melpa.org/packages/"))))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)

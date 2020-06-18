@@ -7,7 +7,11 @@
   (setq gc-cons-threshold most-positive-fixnum))
 
 (defun my-minibuffer-exit-hook ()
-  (setq gc-cons-threshold 800000))
+  ;; Set to this large for LSP
+  (setq gc-cons-threshold 100000000))
+
+;; Set for LSP
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
@@ -40,6 +44,8 @@
 (require 'init-ivy)
 (require 'init-evil)
 (require 'init-company)
+(require 'init-neotree)
+(require 'init-lsp)
 
 ;; Language supports
 (require 'init-c)
@@ -55,7 +61,6 @@
 (require 'init-org)
 (require 'init-yasnippet)
 (require 'init-magit)
-(require 'init-neotree)
 (require 'init-projectile)
 (require 'init-pdf-tools)
 

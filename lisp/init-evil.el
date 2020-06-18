@@ -37,6 +37,7 @@
 
   ;; Open functional modules
   "A" 'org-agenda-list
+  "C" 'org-capture
   "t" 'neotree-toggle
   "p" 'projectile-command-map
   "ar" 'elfeed
@@ -61,6 +62,11 @@
 (use-package evil-collection
   :config
   (evil-collection-init))
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
 (provide 'init-evil)
 

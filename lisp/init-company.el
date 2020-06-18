@@ -10,15 +10,6 @@
   (setq company-selection-wrap-around t)
   (company-tng-configure-default))
 
-(use-package lsp-mode
-  :hook (XXX-mode . lsp-deferred)
-  :commands (lsp lsp-deferred))
-
-(use-package company-lsp :commands company-lsp)
-
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-
 (provide 'init-company)
 
 ;;; init-company.el ends here

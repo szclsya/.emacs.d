@@ -29,6 +29,10 @@
 
 (use-package elvish-mode)
 
+(use-package fish-mode)
+
+(use-package json-mode)
+
 (provide 'init-elpa)
 
 ;;; init-elpa.el ends here

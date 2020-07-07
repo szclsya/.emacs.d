@@ -6,6 +6,7 @@
   :hook
   (typescript-mode . lsp-deferred)
   (python-mode . lsp-deferred)
+  (js2-mode . lsp-deferred)
   :commands
   (lsp lsp-deferred))
 

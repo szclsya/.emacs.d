@@ -49,6 +49,7 @@
 
 ;; Language supports
 (require 'init-c)
+(require 'init-web)
 (require 'init-tex)
 (require 'init-racket)
 (require 'init-markdown)

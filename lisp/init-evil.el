@@ -57,7 +57,10 @@
   (evil-ex-define-cmd "quit" 'evil-quit)
 
   ;; Use undo tree on every undo event
-  (define-key evil-normal-state-map (kbd "u") 'undo-tree-visualize))
+  (define-key evil-normal-state-map (kbd "u") 'undo-tree-visualize)
+  (define-key evil-normal-state-map (kbd ";") 'evil-ex)
+  (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
+  )
 
 (use-package evil-collection
   :config

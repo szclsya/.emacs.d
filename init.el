@@ -46,6 +46,8 @@
 (require 'init-company)
 (require 'init-neotree)
 (require 'init-lsp)
+(require 'init-flycheck)
+(require 'init-flyspell)
 
 ;; Language supports
 (require 'init-c)
@@ -55,6 +57,7 @@
 (require 'init-markdown)
 (require 'init-typescript)
 (require 'init-python)
+(require 'init-rust)
 
 ;; Functional modules
 (require 'init-elfeed)

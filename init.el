@@ -31,6 +31,10 @@
     (setq auto-save-file-name-transforms
           `((".*" ,temporary-file-directory t)))
 
+;; Use org-mode as default Scratch buffer mode
+(setq initial-major-mode 'org-mode)
+(setq initial-scratch-message "")
+
 ;; Load modules
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

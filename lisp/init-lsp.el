@@ -7,13 +7,17 @@
   (typescript-mode . lsp-deferred)
   (python-mode . lsp-deferred)
   (js2-mode . lsp-deferred)
+  (rust-mode . lsp-deferred)
   :commands
   (lsp lsp-deferred))
 
 (use-package lsp-ui
   :config
   (setq lsp-ui-sideline-show-diagnostics t)
-  (setq lsp-ui-sideline-show-hover t))
+  (setq lsp-ui-sideline-show-hover t)
+  ;; No giant hover box plz
+  (setq lsp-ui-doc-enable nil)
+  )
 
 (use-package lsp-ivy
   :commands lsp-ivy-workspace-symbol)

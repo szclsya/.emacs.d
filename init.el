@@ -45,6 +45,7 @@
 ;; Necessary features
 (require 'init-elpa)
 (require 'init-theme)
+(require 'init-ligature)
 (require 'init-ivy)
 (require 'init-evil)
 (require 'init-company)

@@ -54,6 +54,7 @@
 (require 'init-flyspell)
 
 ;; Language supports
+(require 'init-latex)
 (require 'init-c)
 (require 'init-web)
 (require 'init-tex)

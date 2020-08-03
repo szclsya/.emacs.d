@@ -14,6 +14,8 @@
 
 		  ("https://xkcd.com/atom.xml" webcomic)
 
+          ("https://hacks.mozilla.org/feed/" tech)
+
 		  ("https://viflythink.com/atom.xml" inspiration)
 		  ("https://www.vincehut.top/?feed=atom" inspiration)
 		  ("https://zhihu.com/rss" inspiration)))

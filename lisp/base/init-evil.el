@@ -10,6 +10,9 @@
 
 (my-leader-def
   :keymaps 'normal
+  "SPC" 'hs-toggle-hiding
+  "-" 'hs-hide-all
+  "+" 'hs-show-all
   ;; File operation
   "f" 'find-file
   ;; Buffer operation

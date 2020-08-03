@@ -8,19 +8,13 @@
 
 (defun my-minibuffer-exit-hook ()
   ;; Set to this large for LSP
-  (setq gc-cons-threshold 100000000))
+  (setq gc-cons-threshold 800000))
 
 ;; Set for LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
-
-;; 4 spaces for a tab
-(setq-default tab-width 4)
-
-;; Don't beep
-(setq visible-bell 1)
 
 ;; Electric pair mode
 (electric-pair-mode 1)
@@ -31,18 +25,15 @@
     (setq auto-save-file-name-transforms
           `((".*" ,temporary-file-directory t)))
 
-;; Use org-mode as default Scratch buffer mode
-(setq initial-major-mode 'org-mode)
-(setq initial-scratch-message "")
-
 ;; Load modules
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 ;; Set up instance-specific settings
 (require 'init-local)
 
 ;; Necessary features
+(add-to-list 'load-path (expand-file-name "lisp/base" user-emacs-directory))
 (require 'init-elpa)
 (require 'init-theme)
 (require 'init-ligature)
@@ -54,11 +45,14 @@
 (require 'init-flycheck)
 (require 'init-flyspell)
 
+;; Settings
+(require 'init-editing)
+
 ;; Language supports
+(add-to-list 'load-path (expand-file-name "lisp/language" user-emacs-directory))
 (require 'init-latex)
 (require 'init-c)
 (require 'init-web)
-(require 'init-tex)
 (require 'init-racket)
 (require 'init-markdown)
 (require 'init-typescript)
@@ -66,12 +60,11 @@
 (require 'init-rust)
 
 ;; Functional modules
+(add-to-list 'load-path (expand-file-name "lisp/tool" user-emacs-directory))
 (require 'init-elfeed)
-(require 'init-telega)
 (require 'init-org)
 (require 'init-yasnippet)
 (require 'init-magit)
 (require 'init-projectile)
-(require 'init-pdf-tools)
 
 ;;; init.el ends here

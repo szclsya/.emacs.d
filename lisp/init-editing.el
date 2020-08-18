@@ -15,7 +15,12 @@
 (setq initial-major-mode 'org-mode)
 (setq initial-scratch-message "")
 
-(use-package smartparens)
+;; Need newline at end of file
+(setq require-final-newline t)
+
+(use-package smartparens
+  :init
+  (smartparens-global-mode))
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

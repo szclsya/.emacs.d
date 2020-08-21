@@ -16,9 +16,6 @@
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
-;; Electric pair mode
-(electric-pair-mode 1)
- 
 ;; Don't pollute my working dir!
     (setq backup-directory-alist
           `((".*" . ,temporary-file-directory)))

@@ -6,13 +6,18 @@
   :keymaps 'normal
   "og" (lambda ()
 		 (interactive)
-		 (find-file "~/gtd/gtd.org"))
+		 (find-file "~/Documents/gtd/gtd.org"))
   "oi" (lambda ()
 		 (interactive)
-		 (find-file "~/gtd/inbox.org"))
-  "oc" 'org-capture
-  "or" 'org-refile
-  "od" 'org-todo)
+		 (find-file "~/Documents/gtd/inbox.org"))
+  "C" 'org-capture)
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (evil-define-key 'normal org-mode-map "t" 'org-clock-in)
+            (evil-define-key 'normal org-mode-map "T" 'org-clock-out)
+            (evil-define-key 'normal org-mode-map "s" 'org-todo)
+            (evil-define-key 'normal org-mode-map "R" 'org-refile)))
 
 ;; Org-mode code block fix
 (setq org-src-preserve-indentation nil
@@ -20,22 +25,31 @@
 
 ;; Add finished timestamp when done
 (setq org-log-done 'time)
-(setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+(setq org-todo-keywords '((sequence "TODO(t)" "ONGOING(o)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
-(setq org-agenda-files '("~/gtd/gtd.org"
-						 "~/gtd/inbox.org"
-						 "~/gtd/tickler.org"))
+
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "red" :weight "bold"))
+        ("WAITING" . (:foreground "red" :weight "bold"))
+        ("WAITING" . (:foreground "orange" :weight "bold"))
+        ("DONE" . (:foreground "green" :weight "bold"))
+        ("CANCELLED" . (:background "grey" :foreground "black"))
+        ))
+
+(setq org-agenda-files '("~/Documents/gtd/gtd.org"
+						 "~/Documents/gtd/inbox.org"
+						 "~/Documents/gtd/tickler.org"))
 
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                               (file+headline "~/gtd/inbox.org" "Tasks")
+                               (file+headline "~/Documents/gtd/inbox.org" "Tasks")
                                "* TODO %i%?")
                               ("T" "Tickler" entry
-                               (file+headline "~/gtd/tickler.org" "Tickler")
+                               (file+headline "~/Documents/gtd/tickler.org" "Tickler")
                                "* %i%? \n %U")))
 
-(setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 3)
-                           ("~/gtd/someday.org" :level . 1)
-                           ("~/gtd/tickler.org" :maxlevel . 2)))
+(setq org-refile-targets '(("~/Documents/gtd/gtd.org" :maxlevel . 3)
+                           ("~/Documents/gtd/someday.org" :level . 1)
+                           ("~/Documents/gtd/tickler.org" :maxlevel . 2)))
 
 
 (org-babel-do-load-languages

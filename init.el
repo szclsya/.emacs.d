@@ -8,7 +8,7 @@
 
 (defun my-minibuffer-exit-hook ()
   ;; Set to this large for LSP
-  (setq gc-cons-threshold 800000))
+  (setq gc-cons-threshold 1000000))
 
 ;; Set for LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb

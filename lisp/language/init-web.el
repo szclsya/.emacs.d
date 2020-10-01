@@ -14,9 +14,16 @@
 		'(("go"    . "\\.html\\'")))
   )
 
-(use-package js2-mode :ensure t)
+(use-package js2-mode
+  :ensure t
+  :config
+  (setq js-indent-level 2)
+  )
 
-(use-package json-mode)
+(use-package json-mode
+  :config
+  (setq js-indent-level 2)
+  )
 
 (use-package sass-mode)
 

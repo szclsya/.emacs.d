@@ -31,7 +31,7 @@
 
 (use-package fish-mode)
 
-(use-package json-mode)
+(use-package nginx-mode)
 
 (provide 'init-elpa)
 

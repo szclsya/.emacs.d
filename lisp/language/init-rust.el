@@ -2,7 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package rustic)
+(use-package rustic
+:config
+(setq rustic-lsp-server 'rls)
+)
 
 (provide 'init-rust)
 

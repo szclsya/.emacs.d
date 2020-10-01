@@ -4,7 +4,9 @@
 
 (use-package flyspell
   :config
-  (setq flyspell-issue-message-flag nil))
+  (setq flyspell-issue-message-flag nil)
+  (setq ispell-program-name "hunspell")
+  )
 
 (provide 'init-flyspell)
 

@@ -2,11 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Always use space instead of tabs
+(setq-default indent-tabs-mode nil)
+
 ;; 4 spaces for a tab
 (setq-default tab-width 4)
 
-;; Always use space instead of tabs
-(setq-default indent-tabs-mode nil)
+(setq indent-line-function 'insert-tab)
 
 ;; Don't beep
 (setq visible-bell 1)

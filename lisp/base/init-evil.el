@@ -58,8 +58,13 @@
 							 (call-interactively 'kill-this-buffer)))
   ;; Need to type out :quit to close emacs
   (evil-ex-define-cmd "quit" 'evil-quit)
+  )
 
-  ;; Use undo tree on every undo event
+
+ ;; Use undo tree on every undo event
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode)
   (define-key evil-normal-state-map (kbd "u") 'undo-tree-visualize)
   (define-key evil-normal-state-map (kbd ";") 'evil-ex)
   (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)

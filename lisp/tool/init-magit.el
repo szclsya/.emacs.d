@@ -8,8 +8,6 @@
 
 (use-package magit)
 
-(use-package evil-magit)
-
 (provide 'init-magit)
   
 ;;; init-magit.el ends here

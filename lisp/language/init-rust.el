@@ -3,8 +3,8 @@
 ;;; Code:
 
 (use-package rustic
-:config
-(setq rustic-lsp-server 'rls)
+  :config
+  ;;(setq rustic-lsp-server 'rls)
 )
 
 (provide 'init-rust)

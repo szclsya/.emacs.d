@@ -49,3 +49,12 @@ flycheck_*.el
 
 # custom.el
 custom.el
+
+# Misc cache
+.cache/
+.lsp-session-v1
+eln-cache/
+projectile-bookmarks.eld
+smex-items
+transient/
+url/

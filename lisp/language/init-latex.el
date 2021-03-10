@@ -22,5 +22,14 @@
 
 (use-package company-auctex)
 
+(use-package langtool
+  :config
+  (setq langtool-java-classpath
+        "/usr/share/languagetool:/usr/share/java/languagetool/*")
+
+;;  (setq langtool-language-tool-server-jar "/usr/share/java/languagetool/languagetool-server.jar")
+  )
+
+
 (provide 'init-latex)
 ;;; init-latex.el ends here

@@ -8,8 +8,6 @@
 ;; 4 spaces for a tab
 (setq-default tab-width 4)
 
-(setq indent-line-function 'insert-tab)
-
 ;; Don't beep
 (setq visible-bell 1)
 

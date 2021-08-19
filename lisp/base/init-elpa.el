@@ -25,6 +25,13 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+;; No littering
+(use-package no-littering
+  :config
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+)
+
 (use-package graphviz-dot-mode)
 
 (use-package elvish-mode)

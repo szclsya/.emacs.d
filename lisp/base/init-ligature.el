@@ -3,7 +3,9 @@
 ;;; Code:
 
 (use-package ligature
-  :load-path "~/Temp/ligature.el"
+  :quelpa (ligature
+           :fetcher github
+           :repo "mickeynp/ligature.el")
   :config
   ;; Enable all Cascadia Code ligatures in programming modes
   (ligature-set-ligatures 'prog-mode '("<--" "<---" "<<-" "<-" "<->" "->" "->>" "-->" "--->" "<!--"

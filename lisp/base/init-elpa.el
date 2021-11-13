@@ -25,16 +25,17 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+;; quelpa
+(use-package quelpa-use-package
+  :init (setq quelpa-update-melpa-p nil)
+  :config (quelpa-use-package-activate-advice))
+
 ;; No littering
 (use-package no-littering
   :config
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 )
-
-(use-package graphviz-dot-mode)
-
-(use-package elvish-mode)
 
 (use-package fish-mode)
 

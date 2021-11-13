@@ -47,6 +47,8 @@
   "at" 'telega)
 
 (use-package evil
+  ;; Install Evil and disable C-i to jump forward to restore TAB functionality in Org mode.
+  :init (setq evil-want-C-i-jump nil)
   :config
   (require 'evil)
   (evil-mode 1)

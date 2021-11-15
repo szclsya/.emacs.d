@@ -31,7 +31,6 @@
 (require 'init-ivy)
 (require 'init-evil)
 (require 'init-company)
-(require 'init-neotree)
 (require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-flyspell)

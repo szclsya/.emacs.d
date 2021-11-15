@@ -39,9 +39,8 @@
   "q" 'evil-window-delete
 
   ;; Open functional modules
-  "A" 'org-agenda-list
-  "C" 'org-capture
-  "t" 'neotree-toggle
+  "oa" 'org-agenda-list
+  "oc" 'org-capture
   "p" 'projectile-command-map
   "ar" 'elfeed
   "at" 'telega)

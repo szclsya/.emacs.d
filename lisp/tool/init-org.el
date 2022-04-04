@@ -16,12 +16,16 @@
           (lambda ()
             (evil-define-key 'normal org-mode-map "t" 'org-clock-in)
             (evil-define-key 'normal org-mode-map "T" 'org-clock-out)
+            (evil-define-key 'normal org-mode-map "D" 'org-deadline)
+            (evil-define-key 'normal org-mode-map "S" 'org-schedule)
             (evil-define-key 'normal org-mode-map "s" 'org-todo)
             (evil-define-key 'normal org-mode-map "R" 'org-refile)))
 
 ;; Org-mode code block fix
 (setq org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)
+
+(setq org-highlight-latex-and-related '(latex script entities))
 
 ;; Add finished timestamp when done
 (setq org-log-done 'time)

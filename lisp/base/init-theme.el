@@ -6,6 +6,7 @@
 (add-to-list 'default-frame-alist '(font . "monospace"))
 
 ;; Disable toolbar and  menubar
+(menu-bar-mode -1)
 (if (display-graphic-p)
     (progn
       (menu-bar-mode -1)

@@ -3,9 +3,7 @@
 ;;; Code:
 
 (use-package rustic
-  :config
-  ;;(setq rustic-lsp-server 'rls)
-)
+  :defer 2)
 
 (provide 'init-rust)
 

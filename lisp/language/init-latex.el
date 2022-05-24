@@ -20,7 +20,8 @@
                  '(output-pdf "zathura"))
   )
 
-(use-package company-auctex)
+(use-package company-auctex
+  :defer t)
 
 (use-package langtool
   :config

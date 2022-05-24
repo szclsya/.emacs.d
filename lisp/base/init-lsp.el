@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package lsp-mode
+  :defer 1
   :hook
   (typescript-mode . lsp-deferred)
   (python-mode . lsp-deferred)
@@ -12,6 +13,7 @@
   (lsp lsp-deferred))
 
 (use-package lsp-ui
+  :defer 1
   :config
   (setq lsp-ui-sideline-show-diagnostics t)
   (setq lsp-ui-sideline-show-hover t)

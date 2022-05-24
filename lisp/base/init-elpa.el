@@ -41,6 +41,11 @@
 
 (use-package nginx-mode)
 
+(use-package esup
+  :ensure t
+  ;; To use MELPA Stable use ":pin melpa-stable",
+  :pin melpa)
+
 (provide 'init-elpa)
 
 ;;; init-elpa.el ends here

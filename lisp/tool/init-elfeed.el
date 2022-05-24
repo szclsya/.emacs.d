@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package elfeed
+  :defer 2
   :config
   (setq elfeed-feeds
 		'(("https://farseerfc.me/feeds/atom.xml" blog)

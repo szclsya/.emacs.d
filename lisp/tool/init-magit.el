@@ -6,7 +6,8 @@
   :keymaps 'normal
   "g" 'magit-status)
 
-(use-package magit)
+(use-package magit
+  :defer 1)
 
 (provide 'init-magit)
   

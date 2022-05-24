@@ -22,5 +22,10 @@
   :init
   (smartparens-global-mode))
 
+;; Highlight TODO and FIXME
+(use-package hl-todo
+  :ensure t
+  :hook ((prog-mode . hl-todo-mode)))
+
 (provide 'init-editing)
 ;;; init-editing.el ends here

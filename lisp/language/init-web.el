@@ -15,17 +15,19 @@
   )
 
 (use-package js2-mode
-  :ensure t
+  :defer 2
   :config
   (setq js-indent-level 2)
   )
 
 (use-package json-mode
+  :defer 2
   :config
   (setq js-indent-level 2)
   )
 
-(use-package sass-mode)
+(use-package sass-mode
+  :defer 2)
 
 (use-package yaml-mode)
 

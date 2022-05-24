@@ -4,6 +4,7 @@
   (setq-default fci-rule-column 80))
 
 (use-package racket-mode
+  :defer 2
   :config
   (add-hook 'racket-mode-hook
 		    (lambda ()

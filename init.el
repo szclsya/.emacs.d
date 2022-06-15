@@ -60,6 +60,7 @@
 (require 'init-typescript)
 (require 'init-python)
 (require 'init-rust)
+(require 'init-sql)
 
 ;; Functional modules
 (add-to-list 'load-path (expand-file-name "lisp/tool" user-emacs-directory))

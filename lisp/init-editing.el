@@ -24,7 +24,6 @@
 
 ;; Highlight TODO and FIXME
 (use-package hl-todo
-  :ensure t
   :hook ((prog-mode . hl-todo-mode)))
 
 (provide 'init-editing)

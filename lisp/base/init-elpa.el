@@ -44,7 +44,7 @@
 (use-package esup
   :ensure t
   ;; To use MELPA Stable use ":pin melpa-stable",
-  :pin melpa)
+  :pin melpa-stable)
 
 (provide 'init-elpa)
 

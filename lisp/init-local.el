@@ -3,6 +3,7 @@
 ;;; Code:
 
 (setq use-chinese-elpa-mirrors nil)
+(setq native-comp-async-report-warnings-errors nil)
 
 (provide 'init-local)
 ;;; init-local.el ends here

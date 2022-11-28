@@ -3,9 +3,6 @@
 ;;; Code:
 
 (use-package ligature
-  :quelpa (ligature
-           :fetcher github
-           :repo "mickeynp/ligature.el")
   :config
   ;; Enable all Cascadia Code ligatures in programming modes
   (ligature-set-ligatures 'prog-mode

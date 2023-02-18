@@ -2,14 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package irony
-  :config
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
+(setq c-default-style "k&r"
+      c-basic-offset 4)
 
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
+(use-package ccls)
 
 (provide 'init-c)
 ;;; init-c.el ends here

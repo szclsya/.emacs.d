@@ -2,9 +2,10 @@
 ;;; Commentary: 
 ;;; Code:
 
-(my-leader-def
+(le-def
   :keymaps 'normal
-  "p" 'projectile-command-map)
+  "p" 'projectile-command-map
+  "G" 'projectile-ripgrep)
 
 (use-package projectile
   :config

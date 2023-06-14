@@ -2,7 +2,7 @@
 ;;; Commentary: 
 ;;; Code:
 
-(my-leader-def
+(le-def
   :keymaps 'normal
   "g" 'magit-status)
 

@@ -24,9 +24,6 @@
 (use-package lsp-ivy
   :commands lsp-ivy-workspace-symbol)
 
-(use-package lsp-treemacs
-  :commands lsp-treemacs-errors-list)
-
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
  

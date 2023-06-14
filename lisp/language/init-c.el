@@ -5,7 +5,11 @@
 (setq c-default-style "k&r"
       c-basic-offset 4)
 
-(use-package ccls)
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+
+(setq lsp-clients-clangd-args
+      '("-j=8" "--query-driver=/opt/devkitpro/devkitARM/bin/arm-none-eabi-g++"))
 
 (provide 'init-c)
 ;;; init-c.el ends here

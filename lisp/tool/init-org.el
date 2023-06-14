@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(my-leader-def
+(le-def
   :keymaps 'normal
   "og" (lambda ()
 		 (interactive)
@@ -13,7 +13,7 @@
   "ob" (lambda ()
          (interactive)
          (switch-to-buffer "*scratch*"))
-  "C" 'org-capture)
+  "oc" 'org-capture)
 
 (add-hook 'org-mode-hook
           (lambda ()

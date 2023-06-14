@@ -39,13 +39,15 @@
 (add-to-list 'load-path (expand-file-name "lisp/base" user-emacs-directory))
 (require 'init-elpa)
 (require 'init-theme)
-(require 'init-ligature)
-(require 'init-ivy)
-(require 'init-evil)
+;;(require 'init-ligature)
+(require 'init-yasnippet)
 (require 'init-company)
 (require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-flyspell)
+(require 'init-ivy)
+(require 'init-evil)
+(require 'init-keybinding)
 
 ;; Settings
 (require 'init-editing)
@@ -66,8 +68,8 @@
 (add-to-list 'load-path (expand-file-name "lisp/tool" user-emacs-directory))
 (require 'init-elfeed)
 (require 'init-org)
-(require 'init-yasnippet)
 (require 'init-magit)
 (require 'init-projectile)
+(require 'init-hledger)
 
 ;;; init.el ends here

@@ -10,7 +10,7 @@
   "oi" (lambda ()
 		 (interactive)
 		 (find-file "~/Documents/gtd/inbox.org"))
-  "ob" (lambda ()
+  "os" (lambda ()
          (interactive)
          (switch-to-buffer "*scratch*"))
   "oc" 'org-capture)

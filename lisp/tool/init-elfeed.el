@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+(le-def
+  :keymaps 'normal
+  "ar" 'elfeed)
+
 (use-package elfeed
   :defer 2
   :config

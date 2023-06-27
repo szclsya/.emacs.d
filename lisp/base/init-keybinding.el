@@ -51,5 +51,6 @@
 		(call-interactively 'evil-window-down))
   "q" 'evil-window-delete
   )
+
 (provide 'init-keybinding)
 ;;; init-keybinding.el ends here

@@ -3,8 +3,10 @@
 ;;; Code:
 
 (use-package evil
+  :init 
+  (setq evil-respect-visual-line-mode t)
   ;; Install Evil and disable C-i to jump forward to restore TAB functionality in Org mode.
-  :init (setq evil-want-C-i-jump nil)
+  (setq evil-want-C-i-jump nil)
   :config
   (require 'evil)
   (evil-mode 1)
@@ -34,6 +36,15 @@
 
 (use-package evil-surround
   :ensure t
+  :init
+  ;; use non-spaced pairs when surrounding with an opening brace
+  (setq
+   evil-surround-pairs-alist
+   '((?\( . ("(" . ")"))
+     (?\[ . ("[" . "]"))
+     (?\{ . ("{" . "}"))
+     (?\" . ("\"" . "\""))
+     ))
   :config
   (global-evil-surround-mode 1))
 

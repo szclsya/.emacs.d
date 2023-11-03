@@ -18,9 +18,9 @@
 ;; Need newline at end of file
 (setq require-final-newline t)
 
-(use-package smartparens
-  :init
-  (smartparens-global-mode))
+;;(use-package smartparens
+;;  :init
+;;  (smartparens-global-mode))
 
 ;; Highlight TODO and FIXME
 (use-package hl-todo

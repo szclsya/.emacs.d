@@ -19,6 +19,9 @@
   (setq lsp-ui-sideline-show-hover t)
   ;; No giant hover box plz
   (setq lsp-ui-doc-enable nil)
+  ;; No function description
+  (setq lsp-signature-auto-activate nil)
+  (setq lsp-signature-render-documentation nil)
   )
 
 (use-package lsp-ivy

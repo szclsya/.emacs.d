@@ -15,7 +15,7 @@
   (general-create-definer le-def
     :keymaps 'le-map
     :prefix "SPC")
-)
+  )
 
 (provide 'init-keybinding)
 ;;; init-keybinding.el ends here

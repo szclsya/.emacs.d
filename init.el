@@ -39,7 +39,7 @@
 (add-to-list 'load-path (expand-file-name "lisp/base" user-emacs-directory))
 (require 'init-elpa)
 (require 'init-theme)
-;;(require 'init-ligature)
+(require 'init-ligature)
 (require 'init-yasnippet)
 (require 'init-company)
 (require 'init-lsp)
@@ -71,5 +71,6 @@
 (require 'init-magit)
 (require 'init-projectile)
 (require 'init-hledger)
+(require 'init-mu4e)
 
 ;;; init.el ends here

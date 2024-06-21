@@ -16,7 +16,6 @@
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
-
 ;; Set for LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
@@ -38,16 +37,17 @@
 ;; Necessary features
 (add-to-list 'load-path (expand-file-name "lisp/base" user-emacs-directory))
 (require 'init-elpa)
-(require 'init-theme)
+(require 'init-theme) ;; Gotta get pretty fast!
+(require 'init-keybinding)
+(require 'init-completion)
+(require 'init-evil)
+(require 'init-buffer)
 (require 'init-ligature)
 (require 'init-yasnippet)
 (require 'init-company)
 (require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-flyspell)
-(require 'init-ivy)
-(require 'init-evil)
-(require 'init-keybinding)
 
 ;; Settings
 (require 'init-editing)
@@ -69,7 +69,6 @@
 (require 'init-elfeed)
 (require 'init-org)
 (require 'init-magit)
-(require 'init-projectile)
 (require 'init-hledger)
 (require 'init-mu4e)
 

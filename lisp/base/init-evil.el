@@ -2,6 +2,23 @@
 ;;; Commentary: 
 ;;; Code:
 
+(le-def
+  :keymaps 'normal
+  "h" 'evil-window-left
+  "j" 'evil-window-down
+  "k" 'evil-window-up
+  "l" 'evil-window-right
+  "L" (lambda ()
+                (interactive)
+                (call-interactively 'split-window-horizontally)
+                (call-interactively 'evil-window-right))
+  "J" (lambda ()
+                (interactive)
+                (call-interactively 'split-window-vertically)
+                (call-interactively 'evil-window-down))
+  "q" 'evil-window-delete)
+
+(setq evil-want-keybinding nil)
 (use-package evil
   :init 
   (setq evil-respect-visual-line-mode t)

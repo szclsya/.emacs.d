@@ -1,5 +1,5 @@
 ;;; early-init.el --- The Alpha.                  -*- lexical-binding: t; -*-
-;;; Commentary:
+;;; Commentary: Mostly performance stuff
 ;;; Code:
 
 (defconst emacs-start-time (current-time))
@@ -8,6 +8,10 @@
 ;; This will be later reduced by gcmh
 (setq gc-cons-threshold (* 512 1024 1024)
       gc-cons-percentage 0.8)
+
+;; lsp-mode
+(setq read-process-output-max (* 4 1024 1024))
+(setenv "LSP_USE_PLISTS" "true")
 
 ;; Show startup time
 (add-hook 'emacs-startup-hook
@@ -18,4 +22,5 @@
                               (time-subtract after-init-time emacs-start-time)))
                      gcs-done)))
 
-;; early-init.el ends here
+(provide 'early-init)
+;;; early-init.el ends here

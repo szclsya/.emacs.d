@@ -5,8 +5,8 @@
 (setq c-default-style "k&r"
       c-basic-offset 4)
 
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
+(add-hook 'c-mode-hook 'eglot)
+(add-hook 'c++-mode-hook 'eglot)
 
 (setq lsp-clients-clangd-args
       '("-j=8" "--query-driver=/opt/devkitpro/devkitARM/bin/arm-none-eabi-g++"))

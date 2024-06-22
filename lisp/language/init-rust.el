@@ -3,7 +3,10 @@
 ;;; Code:
 
 (use-package rustic
-  :defer 2)
+  :defer 2
+  :custom
+  (rustic-lsp-client 'eglot)
+  )
 
 (provide 'init-rust)
 

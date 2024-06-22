@@ -7,9 +7,11 @@
 (use-package lsp-pyright
   :defer t
   :ensure t
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
+  :hook
+  (python-mode . (lambda ()
+                   (require 'lsp-pyright)
+                   (eglot))))  ; or lsp-deferred
+
 (provide 'init-python)
 ;;; init-python.el ends here
  

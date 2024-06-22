@@ -4,7 +4,7 @@
 
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'lsp)
+(add-hook 'LaTeX-mode-hook 'eglot)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
 (use-package company-auctex

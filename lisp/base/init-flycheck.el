@@ -8,4 +8,3 @@
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
- 

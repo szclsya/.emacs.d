@@ -43,6 +43,8 @@
 (require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-spell)
+(require 'init-template)
+
 ;; Settings
 (require 'init-editing)
 

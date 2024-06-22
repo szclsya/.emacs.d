@@ -7,13 +7,7 @@
   "t" 'templ-complete)
 
 (use-package tempel
-  :defer 1
-  :custom
-  ;;(templ-trigger-prefix "<")
-  (templ-path (expand-file-name "templates/*.eld" user-emacs-directory))
   :init
-  (global-tempel-abbrev-mode)
-
   ;; Setup completion at point
   (defun tempel-setup-capf ()
     ;; Add the Tempel Capf to `completion-at-point-functions'.
@@ -27,10 +21,16 @@
                 (cons #'tempel-expand
                       completion-at-point-functions)))
 
-  (add-hook 'fundamental-mode-hook 'tempel-setup-capf)
+  (add-hook 'conf-mode-hook 'tempel-setup-capf)
   (add-hook 'prog-mode-hook 'tempel-setup-capf)
   (add-hook 'text-mode-hook 'tempel-setup-capf)
+
+  (global-tempel-abbrev-mode)
   )
+
+(defun tempel-reload ()
+    (interactive)
+    (setq tempel--path-templates nil))
 
 (provide 'init-template)
 

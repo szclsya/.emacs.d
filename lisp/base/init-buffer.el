@@ -4,19 +4,16 @@
 
 (le-def
   :keymaps 'normal
-  "p" 'projectile-switch-project
-  "G" 'projectile-ripgrep
-  "f" 'find-file
-  "F" 'consult-projectile-find-file
-  "b" 'consult-buffer
-  "B" 'consult-projectile-switch-to-buffer)
+  "pp" 'project-switch-project
+  "pg" 'project-find-regexp
+  "pf" 'project-find-file
+  "pq" 'project-kill-buffers
+  "pb" 'consult-project-buffer
 
-(use-package projectile
-  :config
-  (projectile-mode +1))
-(use-package ripgrep)
-(use-package projectile-ripgrep)
-(use-package consult-projectile)
+  "f" 'find-file
+  "b" 'consult-buffer)
+
+(setq xref-search-program 'ripgrep)
 
 (provide 'init-buffer)
 ;;; init-buffer.el ends here

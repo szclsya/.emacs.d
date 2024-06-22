@@ -25,6 +25,7 @@
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (use-package all-the-icons)
+(use-package nerd-icons)
 
 (use-package doom-themes
   :config
@@ -38,7 +39,6 @@
   (setq doom-modeline-height 15)
   (setq doom-modeline-project-detection 'projectile)
   (setq doom-modeline-env-enable-python t))
-
 
 (provide 'init-theme)
 ;;; init-theme.el ends here

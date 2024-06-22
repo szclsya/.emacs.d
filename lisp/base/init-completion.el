@@ -5,10 +5,20 @@
 ;;; Mini-buffer completion
 (use-package vertico
   :ensure t
+  :custom
+  (vertico-cycle t)
+  (vertico-resize nil)
+  (vertico-count 9)
   :config
-  (setq vertico-cycle t)
-  (setq vertico-resize nil)
-  (vertico-mode 1))
+  (vertico-mode))
+
+(use-package savehist
+  :init
+  (savehist-mode))
+
+(use-package recentf
+  :config
+  (recentf-mode 1))
 
 (use-package vertico-directory
   :after vertico
@@ -18,29 +28,35 @@
               ("DEL" . vertico-directory-delete-char)
               ("M-DEL" . vertico-directory-delete-word))
   ;; Tidy shadowed file names
-  ;;:hook (rfn-eshadow-update-overlay . vertico-directory-tidy)
-  )
-
-(use-package savehist
-  :init
-  (savehist-mode))
+  :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
 (use-package consult)
 
 (use-package marginalia
   :ensure t
+  :custom
+  (marginalia-max-relative-age 0)
+  (marginalia-align 'right)
   :config
-  (marginalia-mode 1))
+  (marginalia-mode))
+
+(use-package all-the-icons-completion
+  :after (marginalia all-the-icons)
+  :hook (marginalia-mode . all-the-icons-completion-marginalia-setup)
+  :init
+  (all-the-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
 
 (use-package orderless
   :ensure t
-  :config
-  (setq completion-styles '(orderless basic)
-        completion-category-defaults nil
-        completion-category-overrides '((file (styles partial-completion)))))
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
-(savehist-mode 1)
-(recentf-mode 1)
+(use-package cape
+  :init
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-dabbrev 90))
 
 ;;; In-buffer completion (code completion)
 (use-package corfu
@@ -82,13 +98,7 @@
   ;; Emacs 28 and newer: Hide commands in M-x which do not apply to the current
   ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
   ;; setting is useful beyond Corfu.
-  (setq read-extended-command-predicate #'command-completion-default-include-p)
-  )
-
-(use-package cape
-  :init
-  (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'cape-dabbrev 90))
+  (setq read-extended-command-predicate #'command-completion-default-include-p))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

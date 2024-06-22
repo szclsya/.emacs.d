@@ -26,7 +26,6 @@
   (setq evil-want-C-i-jump nil)
   :config
   (require 'evil)
-  (evil-mode 1)
   ;; :q should kill the current buffer rather than quitting emacs entirely
   (evil-ex-define-cmd "q" 'kill-this-buffer)
   (evil-ex-define-cmd "wq" (lambda ()
@@ -35,17 +34,22 @@
 							 (call-interactively 'kill-this-buffer)))
   ;; Need to type out :quit to close emacs
   (evil-ex-define-cmd "quit" 'evil-quit)
-  )
+  ;; Use consult for paste from kill-ring
+  (define-key evil-normal-state-map (kbd "M-y") 'consult-yank-pop)
+  (define-key evil-insert-state-map (kbd "M-y") 'consult-yank-pop)
 
+  (evil-mode 1))
 
  ;; Use undo tree on every undo event
 (use-package undo-tree
+  :custom
+  (undo-tree-visualizer-timestamps t)
   :config
-  (global-undo-tree-mode)
   (define-key evil-normal-state-map (kbd "u") 'undo-tree-visualize)
   (define-key evil-normal-state-map (kbd ";") 'evil-ex)
   (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
-  )
+
+  (global-undo-tree-mode))
 
 (use-package evil-collection
   :config

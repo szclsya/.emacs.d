@@ -40,11 +40,9 @@
 (require 'init-evil)
 (require 'init-buffer)
 (require 'init-ligature)
-;;(require 'init-yasnippet)
-;;(require 'init-inbuffer-completion)
 (require 'init-lsp)
 (require 'init-flycheck)
-(require 'init-flyspell)
+(require 'init-spell)
 ;; Settings
 (require 'init-editing)
 

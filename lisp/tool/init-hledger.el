@@ -33,7 +33,7 @@
   (setq hledger-jfile
         (expand-file-name "~/Documents/ledger/current.journal"))
   :config
-  (add-to-list 'company-backends 'hledger-company)
+  ;;(add-to-list 'company-backends 'hledger-company)
   (setq hledger-currency-string "$")
   )
 

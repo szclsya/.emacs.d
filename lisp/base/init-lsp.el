@@ -4,13 +4,21 @@
 
 (use-package lsp-mode
   :defer 1
+  :custom
+  (lsp-completion-provider :none) ;; we use Corfu!
+  :init
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(flex))) ;; Configure flex
   :hook
   (typescript-mode . lsp-deferred)
   (python-mode . lsp-deferred)
   (js2-mode . lsp-deferred)
   (rust-mode . lsp-deferred)
+  (lsp-completion-mode . my/lsp-mode-setup-completion)
   :commands
-  (lsp lsp-deferred))
+  (lsp lsp-deferred)
+  )
 
 (use-package lsp-ui
   :defer 1

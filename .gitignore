@@ -51,6 +51,9 @@ flycheck_*.el
 # custom.el
 custom.el
 
+# local config
+local.el
+
 # Misc cache
 .cache/
 .lsp-session-v1

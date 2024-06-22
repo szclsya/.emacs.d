@@ -12,13 +12,10 @@
   (setopt gc-cons-percentage 0.2)
   (add-hook 'elpaca-after-init-hook #'gcmh-mode))
 
-(use-package benchmark-init
+(use-package esup
   :ensure t
-  :config
-  ;; To disable collection of benchmark data after init is done.
-  (add-hook 'after-init-hook 'benchmark-init/deactivate))
-
-(benchmark-init/activate)
+  ;; To use MELPA Stable use ":pin melpa-stable",
+  :pin melpa-stable)
 
 (provide 'init-performance)
 ;;; init-performance.el ends here

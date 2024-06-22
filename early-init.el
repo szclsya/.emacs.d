@@ -4,8 +4,10 @@
 
 (defconst emacs-start-time (current-time))
 
-(setq gc-cons-threshold most-positive-fixnum
-     gc-cons-percentage 0.6)
+;; Allow up to 512MiB of RAM during startup
+;; This will be later reduced by gcmh
+(setq gc-cons-threshold (* 512 1024 1024)
+      gc-cons-percentage 0.8)
 
 ;; Show startup time
 (add-hook 'emacs-startup-hook

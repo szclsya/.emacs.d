@@ -5,8 +5,7 @@
 (use-package rustic
   :defer 2
   :custom
-  (rustic-lsp-client 'eglot)
-  )
+  (rustic-lsp-client 'eglot))
 
 (provide 'init-rust)
 

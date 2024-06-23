@@ -3,8 +3,11 @@ Basically you need the usual build stuff and some extra libraries.
 
 ** Arch Linux  
 #+BEGIN_SRC bash
-# For Flyspell. Choose your language
+# For jinx. Choose your language
+libenchant
 hunspell-en_us
+# For tree-sitter
+tree-sitter-grammars
 #+END_SRC
 
 * Full installation

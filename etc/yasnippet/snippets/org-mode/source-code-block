@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: Source code block
-# key: src
-# --
-
-#+BEGIN_SRC $1
-$0
-#+END_SRC

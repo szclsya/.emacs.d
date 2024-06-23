@@ -35,8 +35,8 @@
 (require 'init-buffer)
 (require 'init-ligature)
 (require 'init-lsp)
-(require 'init-flycheck)
 (require 'init-spell)
+(require 'init-check)
 (require 'init-template)
 
 ;; Language supports

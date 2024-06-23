@@ -2,12 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-
-(add-to-list 'eglot-server-programs '((LaTeX-mode) "texlab"))
-(add-hook 'LaTeX-mode-hook 'eglot-ensure)
+(use-package auctex
+  :ensure nil
+  :hook
+  ((LaTeX-mode . visual-line-mode)
+   (LaTeX-mode . flymake-mode)
+   (LaTeX-mode . turn-on-reftex)
+   (LaTeX-mode . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs '((LaTeX-mode) "texlab")))
 
 (provide 'init-latex)
 ;;; init-latex.el ends here

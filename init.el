@@ -2,14 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(when (version< emacs-version "28.1")
-  (message "Emacs version too old. Things might be broken."))
+(setq msev "28.1")
+(when (version< emacs-version msev)
+  (message (format "Emacs version too old (%f<%f). Things might be broken."
+                   emacs-version msev)))
 
 ;; Load modules
 (load (expand-file-name "local.el" user-emacs-directory))
 (setq custom-file (expand-file-name "etc/custom.el" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+;; Configure use-package
 ;; This var is configured in local.el
 (if (and (boundp use-chinese-elpa-mirrors) use-chinese-elpa-mirrors)
 	(setq package-archives '(("gnu"   . "https://mirrors.bfsu.edu.cn/elpa/gnu/")
@@ -31,6 +34,10 @@
 
 ;; No littering
 (use-package no-littering
+  :init
+  (setq no-littering-var-directory "~/.cache/emacs")
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   :config
   (no-littering-theme-backups))
 

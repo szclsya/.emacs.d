@@ -22,10 +22,7 @@
   :config
   (setq-default fci-rule-column 80))
 
-;; Highlight TODO and FIXME
-(use-package hl-todo
-  :hook ((prog-mode . hl-todo-mode)))
-
+;; Switched to vundo because undo-tree requires a minor mode
 (use-package vundo
   :after evil
   :custom
@@ -41,6 +38,18 @@
         "j" 'vundo-next
         "k" 'vundo-previous
         "q" 'vundo-exit))
+
+(use-package avy
+  :general
+  (:states 'normal
+          "s" 'evil-avy-goto-char-timer
+          "f" 'evil-avy-goto-char-in-line
+          "gl" 'evil-avy-goto-line
+          ":" 'avy-resume))
+
+;; Highlight TODO and FIXME
+(use-package hl-todo
+  :hook ((prog-mode . hl-todo-mode)))
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

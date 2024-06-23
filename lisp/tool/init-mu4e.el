@@ -8,11 +8,17 @@
   :after mu4e
   :config (mu4e-column-faces-mode))
 
+(use-package mu4e-marker-icons
+  :after mu4e
+  :defer 3)
+
 (use-package mu4e
   :ensure nil
   :general
   (:state 'normal :keymaps 'mu4e-headers-mode-map
           "r" 'mu4e-headers-mark-for-read)
+  :hook
+  ((mu4e-view-mode . visual-line-mode))
   :custom
   ;; General configurations
   (mu4e-maildir (expand-file-name "~/.mail"))
@@ -51,10 +57,8 @@
                (mu4e-trash-folder  . "/gmail/.Trash")))
      ))
   :config
-  (add-hook 'mu4e-view-mode-hook #'visual-line-mode)
   )
 
-(use-package mu4e-marker-icons)
 
 (provide 'init-mu4e)
 ;;; init-mu4e.el ends here

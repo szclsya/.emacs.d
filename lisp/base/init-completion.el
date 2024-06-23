@@ -30,6 +30,10 @@
   ;; Tidy shadowed file names
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
+(use-package nerd-icons-corfu
+  :hook
+  (corfu-margin-formatter . nerd-icons-corfu-formatter))
+
 (use-package consult)
 
 (use-package marginalia
@@ -40,12 +44,12 @@
   :config
   (marginalia-mode))
 
-(use-package all-the-icons-completion
+;; Use nerd-icons because all-the-icons-completion have alignment issues
+(use-package nerd-icons-completion
   :after (marginalia all-the-icons)
-  :hook (marginalia-mode . all-the-icons-completion-marginalia-setup)
-  :init
-  (all-the-icons-completion-mode)
-  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
+  :hook ((marginalia-mode . nerd-icons-completion-mode))
+  :config
+  (nerd-icons-completion-mode))
 
 (use-package orderless
   :ensure t
@@ -99,6 +103,11 @@
   ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
   ;; setting is useful beyond Corfu.
   (setq read-extended-command-predicate #'command-completion-default-include-p))
+
+;;; Keybinding completion
+;; (use-package which-key
+;;   :config
+;;   (which-key-mode))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

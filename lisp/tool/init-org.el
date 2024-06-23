@@ -18,13 +18,13 @@
 (use-package org
   :ensure nil
   :general
-  (:state 'normal :keymaps 'org-mode-map
-          "t" 'org-clock-in
-          "T" 'org-clock-out
-          "D" 'org-deadline
-          "S" 'org-schedule
-          "s" 'org-todo
-          "R" 'org-refile)
+  (:states 'normal :keymaps 'org-mode-map
+           "t" 'org-clock-in
+           "T" 'org-clock-out
+           "D" 'org-deadline
+           "S" 'org-schedule
+           "s" 'org-todo
+           "R" 'org-refile)
   :custom
   ;; Org-mode code clock fix
   (org-src-preserve-indentation nil)

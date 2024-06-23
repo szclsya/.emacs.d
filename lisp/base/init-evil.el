@@ -20,10 +20,10 @@
 
 (setq evil-want-keybinding nil)
 (use-package evil
-  :init 
-  (setq evil-respect-visual-line-mode t)
+  :custom
+  (evil-respect-visual-line-mode t)
   ;; Install Evil and disable C-i to jump forward to restore TAB functionality in Org mode.
-  (setq evil-want-C-i-jump nil)
+  (evil-want-C-i-jump nil)
   :general
   ;; Use consult for pasting from kill-ring
   (:state 'normal "M-y" 'consult-yank-pop)

@@ -19,10 +19,14 @@
 ;; highlight end of bracket
 (show-paren-mode 1)
 
+;; Show column number and file size in modeline
+(setq column-number-mode t
+      size-indication-mode t)
+
 ;; rainbow-delimiters!
 (use-package rainbow-delimiters
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  :hook
+  ((prog-mode . rainbow-delimiters-mode)))
 
 (use-package all-the-icons)
 (use-package nerd-icons)

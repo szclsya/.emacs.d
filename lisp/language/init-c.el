@@ -2,15 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq c-default-style "k&r"
-      c-basic-offset 4)
+(use-package cc-mode
+  :ensure nil
+  :custom
+  (c-default-style "k&r")
+  (c-basic-offset 4)
+  :hook
+  ((c-mode-hook   . eglot-ensure)
+   (c++-mode-hook . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
 
-(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-(add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
-
-(setq lsp-clients-clangd-args
-      '("-j=8" "--query-driver=/opt/devkitpro/devkitARM/bin/arm-none-eabi-g++"))
+;;(setq lsp-clients-clangd-args
+;;      '("-j=8" "--query-driver=/opt/devkitpro/devkitARM/bin/arm-none-eabi-g++"))
 
 (provide 'init-c)
 ;;; init-c.el ends here

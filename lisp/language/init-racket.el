@@ -1,16 +1,16 @@
-;; Insert Lambda symbol on F2
-(use-package fill-column-indicator
-  :config
-  (setq-default fci-rule-column 80))
+;;; init-racket.el --- Racket settings -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 (use-package racket-mode
   :defer 2
+  :general
+  (:keymaps 'racket-mode-map
+            "<f1>" 'racket-doc
+            "<f2>" 'racket-insert-lambda
+            "<f5>" 'racket-run)
   :config
-  (add-hook 'racket-mode-hook
-		    (lambda ()
-			  (define-key racket-mode-map (kbd "<f1>") 'racket-doc)
-			  (define-key racket-mode-map (kbd "<f2>") 'racket-insert-lambda)
-		      (define-key racket-mode-map (kbd "<f5>") 'racket-run)
-			  (auto-fci-mode))))
+  (add-hook 'racket-mode-hook 'fci-mode))
 
 (provide 'init-racket)
+;;; init-racket.el ends here

@@ -18,13 +18,29 @@
 ;; Need newline at end of file
 (setq require-final-newline t)
 
-;;(use-package smartparens
-;;  :init
-;;  (smartparens-global-mode))
+(use-package fill-column-indicator
+  :config
+  (setq-default fci-rule-column 80))
 
 ;; Highlight TODO and FIXME
 (use-package hl-todo
   :hook ((prog-mode . hl-todo-mode)))
+
+(use-package vundo
+  :after evil
+  :custom
+  (vundo-compact-display t)
+  (vundo-glyph-alist vundo-unicode-symbols)
+  (vundo-roll-back-on-quit nil)
+  :general
+  (:states 'normal
+        "u" 'vundo)
+  (:keymaps 'vundo-mode-map
+        "l" 'vundo-forward
+        "h" 'vundo-backward
+        "j" 'vundo-next
+        "k" 'vundo-previous
+        "q" 'vundo-exit))
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

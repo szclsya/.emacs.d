@@ -4,9 +4,9 @@
 
 (defconst emacs-start-time (current-time))
 
-;; Allow up to 512MiB of RAM during startup
+;; Allow up to 256MiB of RAM during startup
 ;; This will be later reduced by gcmh
-(setq gc-cons-threshold (* 512 1024 1024)
+(setq gc-cons-threshold (* 256 1024 1024)
       gc-cons-percentage 0.8)
 
 ;; lsp-mode

@@ -8,6 +8,4 @@
   (rustic-lsp-client 'eglot))
 
 (provide 'init-rust)
-
 ;;; init-rust.el ends here
- 

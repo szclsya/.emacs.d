@@ -2,10 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(le-def
-  :keymaps 'normal
-  "t" 'templ-complete)
-
 (use-package tempel
   :init
   ;; Setup completion at point
@@ -25,13 +21,12 @@
   (add-hook 'prog-mode-hook 'tempel-setup-capf)
   (add-hook 'text-mode-hook 'tempel-setup-capf)
 
-  (global-tempel-abbrev-mode)
-  )
+  (global-tempel-abbrev-mode))
 
 (defun tempel-reload ()
-    (interactive)
-    (setq tempel--path-templates nil))
+  "Reload tempel templates."
+  (interactive)
+  (setq tempel--path-templates nil))
 
 (provide 'init-template)
-
 ;;; init-template.el ends here

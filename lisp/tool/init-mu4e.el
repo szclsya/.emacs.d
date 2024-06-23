@@ -10,6 +10,9 @@
 
 (use-package mu4e
   :ensure nil
+  :general
+  (:state 'normal :keymaps 'mu4e-headers-mode-map
+          "r" 'mu4e-headers-mark-for-read)
   :custom
   ;; General configurations
   (mu4e-maildir (expand-file-name "~/.mail"))
@@ -49,7 +52,6 @@
      ))
   :config
   (add-hook 'mu4e-view-mode-hook #'visual-line-mode)
-  (evil-define-key 'normal 'mu4e-headers-mode-map (kbd "r") 'mu4e-headers-mark-for-read)
   )
 
 (use-package mu4e-marker-icons)

@@ -10,6 +10,9 @@
 (use-package jinx
   :hook (emacs-startup . global-jinx-mode))
 
-(provide 'init-spell)
+(use-package langtool
+  :custom
+  (langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 
+(provide 'init-spell)
 ;;; init-spell.el ends here

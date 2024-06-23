@@ -29,16 +29,12 @@
 
 (use-package doom-themes
   :config
-  (load-theme 'doom-vibrant t)
-  (doom-themes-neotree-config))
+  (load-theme 'doom-vibrant t))
 
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode 1)
-  :config
-  (setq doom-modeline-height 15)
-  (setq doom-modeline-project-detection 'projectile)
-  (setq doom-modeline-env-enable-python t))
+  :custom
+  (doom-modeline-env-enable-python t))
 
 (provide 'init-theme)
 ;;; init-theme.el ends here

@@ -2,14 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
+(when (version< emacs-version "28.1")
+  (message "Emacs version too old. Things might be broken."))
+
 ;; Load modules
 (load (expand-file-name "local.el" user-emacs-directory))
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "etc/custom.el" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;; Configure use-package environment
-(package-initialize)
-(require 'package)
 ;; This var is configured in local.el
 (if (and (boundp use-chinese-elpa-mirrors) use-chinese-elpa-mirrors)
 	(setq package-archives '(("gnu"   . "https://mirrors.bfsu.edu.cn/elpa/gnu/")
@@ -18,13 +18,6 @@
   (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 						   ("melpa" . "https://melpa.org/packages/")
 						   ("melpa-stable" . "https://stable.melpa.org/packages/"))))
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
-;; Automatically install
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
 
 ;; No littering
 (use-package no-littering
@@ -36,6 +29,7 @@
 (require 'init-performance)
 (require 'init-theme) ;; Gotta get pretty fast!
 (require 'init-keybinding)
+(require 'init-editing)
 (require 'init-completion)
 (require 'init-evil)
 (require 'init-buffer)
@@ -44,7 +38,6 @@
 (require 'init-flycheck)
 (require 'init-spell)
 (require 'init-template)
-(require 'init-editing)
 
 ;; Language supports
 (add-to-list 'load-path (expand-file-name "lisp/language" user-emacs-directory))

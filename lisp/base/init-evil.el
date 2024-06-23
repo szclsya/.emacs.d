@@ -24,32 +24,26 @@
   (setq evil-respect-visual-line-mode t)
   ;; Install Evil and disable C-i to jump forward to restore TAB functionality in Org mode.
   (setq evil-want-C-i-jump nil)
+  :general
+  ;; Use consult for pasting from kill-ring
+  (:state 'normal "M-y" 'consult-yank-pop)
+  (:state 'insert "M-y" 'consult-yank-pop)
   :config
   (require 'evil)
+  ;; Use `;` for evil-ex to save some shift presses
+  ;; Think these are too fundamental to be changed by general.el
+  (define-key evil-normal-state-map (kbd ";") 'evil-ex)
+  (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
   ;; :q should kill the current buffer rather than quitting emacs entirely
   (evil-ex-define-cmd "q" 'kill-this-buffer)
   (evil-ex-define-cmd "wq" (lambda ()
-							 (interactive)
-							 (call-interactively 'save-buffer)
-							 (call-interactively 'kill-this-buffer)))
+                             (interactive)
+                             (call-interactively 'save-buffer)
+                             (call-interactively 'kill-this-buffer)))
   ;; Need to type out :quit to close emacs
   (evil-ex-define-cmd "quit" 'evil-quit)
-  ;; Use consult for paste from kill-ring
-  (define-key evil-normal-state-map (kbd "M-y") 'consult-yank-pop)
-  (define-key evil-insert-state-map (kbd "M-y") 'consult-yank-pop)
 
   (evil-mode 1))
-
- ;; Use undo tree on every undo event
-(use-package undo-tree
-  :custom
-  (undo-tree-visualizer-timestamps t)
-  :config
-  (define-key evil-normal-state-map (kbd "u") 'undo-tree-visualize)
-  (define-key evil-normal-state-map (kbd ";") 'evil-ex)
-  (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
-
-  (global-undo-tree-mode))
 
 (use-package evil-collection
   :config
@@ -57,10 +51,9 @@
 
 (use-package evil-surround
   :ensure t
-  :init
+  :custom
   ;; use non-spaced pairs when surrounding with an opening brace
-  (setq
-   evil-surround-pairs-alist
+  (evil-surround-pairs-alist
    '((?\( . ("(" . ")"))
      (?\[ . ("[" . "]"))
      (?\{ . ("{" . "}"))
@@ -70,5 +63,4 @@
   (global-evil-surround-mode 1))
 
 (provide 'init-evil)
-
 ;;; init-evil.el ends here

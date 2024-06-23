@@ -7,9 +7,7 @@
   "g" 'magit-status)
 
 (use-package magit
-  :defer 1)
+  :defer 2)
 
 (provide 'init-magit)
-  
 ;;; init-magit.el ends here
- 

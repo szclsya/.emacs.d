@@ -55,7 +55,6 @@
 (require 'init-web)
 (require 'init-racket)
 (require 'init-markdown)
-(require 'init-typescript)
 (require 'init-python)
 (require 'init-rust)
 (require 'init-sql)

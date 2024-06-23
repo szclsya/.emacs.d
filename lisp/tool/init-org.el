@@ -59,5 +59,4 @@
                            ("~/Documents/gtd/tickler.org" :maxlevel . 2)))
 
 (provide 'init-org)
-
 ;;; init-org.el ends here

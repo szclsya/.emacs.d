@@ -4,12 +4,12 @@
 
 (use-package markdown-mode
   :ensure t
+  :custom
+  (markdown-command "multimarkdown")
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+         ("\\.markdown\\'" . markdown-mode)))
 
 (provide 'init-markdown)
-
 ;;; init-markdown.el ends here

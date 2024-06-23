@@ -18,6 +18,12 @@
      :foldingRangeProvider))
   (eglot-stay-out-of '(yasnippet)))
 
+(use-package flycheck-eglot
+  :ensure t
+  :after (flycheck eglot)
+  :config
+  (global-flycheck-eglot-mode 1))
+
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
  

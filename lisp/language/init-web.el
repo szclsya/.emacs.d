@@ -3,28 +3,26 @@
 ;;; Code:
 
 (use-package web-mode
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
+  (web-mode-enable-auto-pairing t)
+  (web-mode-engines-alist '(("go" . "\\.html\\'")))
   :config
-  (require 'web-mode)
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-enable-auto-pairing t)
-  (setq web-mode-engines-alist
-		'(("go"    . "\\.html\\'")))
-  )
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
 
 (use-package js2-mode
   :defer 2
-  :config
-  (setq js-indent-level 2)
-  )
+  :custom
+  (js-indent-level 2))
+
+(use-package typescript-mode)
 
 (use-package json-mode
   :defer 2
-  :config
-  (setq js-indent-level 2)
-  )
+  :custom
+  (js-indent-level 2))
 
 (use-package sass-mode
   :defer 2)
@@ -32,6 +30,4 @@
 (use-package yaml-mode)
 
 (provide 'init-web)
-
 ;;; init-web.el ends here
- 

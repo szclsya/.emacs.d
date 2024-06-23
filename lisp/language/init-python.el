@@ -10,7 +10,7 @@
   :hook
   (python-mode . (lambda ()
                    (require 'lsp-pyright)
-                   (eglot))))  ; or lsp-deferred
+                   (eglot-ensure))))
 
 (provide 'init-python)
 ;;; init-python.el ends here

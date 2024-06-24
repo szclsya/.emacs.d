@@ -3,7 +3,8 @@
 ;;; Code:
 
 ;; Font settings
-(add-to-list 'default-frame-alist '(font . "monospace"))
+(set-face-attribute 'default nil :font (font-spec :family "monospace" :size 16))
+
 
 ;; Disable toolbar and  menubar
 (menu-bar-mode -1)
@@ -28,7 +29,6 @@
   :hook
   ((prog-mode . rainbow-delimiters-mode)))
 
-(use-package all-the-icons)
 (use-package nerd-icons)
 
 (use-package doom-themes

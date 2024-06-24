@@ -3,14 +3,21 @@
 ;;; Code:
 
 (use-package gcmh
-  :config
-  ;;(setopt garbage-collection-messages t)
-  (setopt gcmh-high-cons-threshold (* 256 1000 1000))
-  (setopt gcmh-low-cons-threshold (* 16 1000 1000))
-  (setopt gcmh-idle-delay 3)
-  ;;(setopt gcmh-verbose t)
-  ;;(setopt gc-cons-percentage 0.2)
+  :init
+  (setopt gcmh-verbose t)
   (gcmh-mode 1))
+
+;; Might be useful for lsp
+(setq read-process-output-max (* 4 1024 1024))
+
+;; Show startup time
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time emacs-start-time)))
+                     gcs-done)))
 
 (use-package esup
   :defer 3

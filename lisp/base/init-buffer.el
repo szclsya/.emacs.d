@@ -9,6 +9,7 @@
   "pf" 'project-find-file
   "pq" 'project-kill-buffers
   "pb" 'consult-project-buffer
+  "pd" 'project-forget-project
 
   "f" 'find-file
   "b" 'consult-buffer)

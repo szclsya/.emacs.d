@@ -8,6 +8,8 @@ libenchant
 hunspell-en_us
 # For tree-sitter
 tree-sitter-grammars
+# For eglot-booster. From AUR
+emacs-lsp-booster
 #+END_SRC
 
 * Full installation

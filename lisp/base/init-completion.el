@@ -8,17 +8,9 @@
   :custom
   (vertico-cycle t)
   (vertico-resize nil)
-  (vertico-count 9)
+  (vertico-count 12)
   :config
   (vertico-mode))
-
-(use-package savehist
-  :init
-  (savehist-mode))
-
-(use-package recentf
-  :config
-  (recentf-mode 1))
 
 (use-package vertico-directory
   :after vertico
@@ -46,7 +38,7 @@
 
 ;; Use nerd-icons because all-the-icons-completion have alignment issues
 (use-package nerd-icons-completion
-  :after (marginalia all-the-icons)
+  :after (marginalia nerd-icons)
   :hook ((marginalia-mode . nerd-icons-completion-mode))
   :config
   (nerd-icons-completion-mode))
@@ -72,7 +64,7 @@
   ;; Orderless
   (corfu-separator ?\s)
   ;; Tab-and-Go
-  (corfu-cycle t) 
+  (corfu-cycle t)
   (corfu-preselect 'prompt)
   :bind
   (:map corfu-map
@@ -97,17 +89,13 @@
 
   ;; Enable indentation+completion using the TAB key.
   ;; `completion-at-point' is often bound to M-TAB.
-  (setq tab-always-indent 'complete)
+  (setq tab-always-indent 'complete
+        tab-first-completion 'eol)
 
   ;; Emacs 28 and newer: Hide commands in M-x which do not apply to the current
   ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
   ;; setting is useful beyond Corfu.
   (setq read-extended-command-predicate #'command-completion-default-include-p))
-
-;;; Keybinding completion
-;; (use-package which-key
-;;   :config
-;;   (which-key-mode))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

@@ -4,8 +4,9 @@
 
 (use-package rust-mode
   :defer 2
-  :custom
-  (rust-mode-treesitter-derive t)
+  ;; treesitter isn't ready with rust yet
+  ;;:custom
+  ;;(rust-mode-treesitter-derive t)
   :hook
   ((rust-mode . eglot-ensure)))
 

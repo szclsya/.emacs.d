@@ -9,16 +9,24 @@
   "k" 'evil-window-up
   "l" 'evil-window-right
   "L" (lambda ()
-                (interactive)
-                (call-interactively 'split-window-horizontally)
-                (call-interactively 'evil-window-right))
+        (interactive)
+        (call-interactively 'split-window-horizontally)
+        (call-interactively 'evil-window-right))
   "J" (lambda ()
-                (interactive)
-                (call-interactively 'split-window-vertically)
-                (call-interactively 'evil-window-down))
+        (interactive)
+        (call-interactively 'split-window-vertically)
+        (call-interactively 'evil-window-down))
   "q" 'evil-window-delete)
 
+;; Evil-mode get annoyed if this line isn't loaded before itself
 (setq evil-want-keybinding nil)
+
+;; Kill this buffer reliably. Yes, 'kill-this-buufer doesn't work some time
+(defun le/kill-this-buffer ()
+  "Just 'kill-this-buffer' but actually reliable."
+  (interactive)
+  (kill-buffer (current-buffer)))
+
 (use-package evil
   :custom
   (evil-respect-visual-line-mode t)
@@ -35,11 +43,11 @@
   (define-key evil-normal-state-map (kbd ";") 'evil-ex)
   (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
   ;; :q should kill the current buffer rather than quitting emacs entirely
-  (evil-ex-define-cmd "q" 'kill-this-buffer)
+  (evil-ex-define-cmd "q" 'le/kill-this-buffer)
   (evil-ex-define-cmd "wq" (lambda ()
                              (interactive)
                              (call-interactively 'save-buffer)
-                             (call-interactively 'kill-this-buffer)))
+                             (call-interactively 'le/kill-this-buffer)))
   ;; Need to type out :quit to close emacs
   (evil-ex-define-cmd "quit" 'evil-quit)
 

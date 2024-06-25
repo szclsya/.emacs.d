@@ -17,7 +17,7 @@
 (if (and (boundp use-chinese-elpa-mirrors) use-chinese-elpa-mirrors)
 	(setq package-archives '(("gnu"   . "https://mirrors.bfsu.edu.cn/elpa/gnu/")
 							 ("melpa" . "https://mirrors.bfsu.edu.cn/elpa/melpa/")
-							 ("melpa-stable" . "https://mirrors.bfsu.edu.cn/elpa/melpa-stable/")))
+							 ("melpa-stable" . "https://mirrors.bfsu.edu.cn/elpa/stable-melpa/")))
   (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 						   ("melpa" . "https://melpa.org/packages/")
 						   ("melpa-stable" . "https://stable.melpa.org/packages/"))))
@@ -74,6 +74,7 @@
 (require 'init-org)
 (require 'init-magit)
 (require 'init-hledger)
-(require 'init-mu4e)
+;;(require 'init-mu4e)
+(require 'init-notmuch)
 
 ;;; init.el ends here

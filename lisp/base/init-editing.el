@@ -51,5 +51,10 @@
 (use-package hl-todo
   :hook ((prog-mode . hl-todo-mode)))
 
+;; Highlight current line
+(use-package hl-line
+  :ensure nil
+  :config (global-hl-line-mode))
+
 (provide 'init-editing)
 ;;; init-editing.el ends here

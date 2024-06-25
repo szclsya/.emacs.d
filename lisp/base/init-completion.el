@@ -12,6 +12,10 @@
   :config
   (vertico-mode))
 
+(use-package savehist
+  :init
+  (savehist-mode))
+
 (use-package vertico-directory
   :after vertico
   :ensure nil
@@ -22,9 +26,6 @@
   ;; Tidy shadowed file names
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
-(use-package nerd-icons-corfu
-  :hook
-  (corfu-margin-formatter . nerd-icons-corfu-formatter))
 
 (use-package consult)
 
@@ -38,10 +39,10 @@
 
 ;; Use nerd-icons because all-the-icons-completion have alignment issues
 (use-package nerd-icons-completion
-  :after (marginalia nerd-icons)
-  :hook ((marginalia-mode . nerd-icons-completion-mode))
+  :after marginalia
   :config
-  (nerd-icons-completion-mode))
+  (nerd-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
 (use-package orderless
   :ensure t
@@ -52,7 +53,14 @@
 (use-package cape
   :init
   (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'cape-dabbrev 90))
+  (add-hook 'completion-at-point-functions #'cape-dabbrev 90)
+  (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster))
+
+(defun corfu-complete-or-insert ()
+  (interactive)
+  (if (>= corfu--index 0)
+      (corfu-complete)
+    (newline-and-indent)))
 
 ;;; In-buffer completion (code completion)
 (use-package corfu
@@ -66,6 +74,9 @@
   ;; Tab-and-Go
   (corfu-cycle t)
   (corfu-preselect 'prompt)
+  ;; popup documentation
+  (corfu-popupinfo-delay 0.2)
+  (text-mode-ispell-word-completion nil)
   :bind
   (:map corfu-map
         ("TAB" . corfu-next)
@@ -73,13 +84,13 @@
         ("RET" . corfu-complete-or-insert))
   :init
   (global-corfu-mode)
-  (setq text-mode-ispell-word-completion nil))
+  (corfu-popupinfo-mode))
 
-(defun corfu-complete-or-insert ()
-  (interactive)
-  (if (>= corfu--index 0)
-      (corfu-complete)
-    (newline-and-indent)))
+
+(use-package nerd-icons-corfu
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package emacs
   :init

@@ -2,20 +2,26 @@
 ;;; Commentary: 
 ;;; Code:
 
+
 (use-package eglot
-  :ensure t
+  :defer 1
+  :commands (eglot)
   :custom
   ;; Prevent eglot status from getting too high
   (max-mini-window-height 1)
   (eglot-autoshutdown t)
   (eglot-events-buffer-size 0)
+  (eglot-events-buffer-config (list :size 0))
   (eglot-ignored-server-capabilities
    '(:hoverProvider
-     :documentHighlightProvider
+     ;;:documentHighlightProvider
      :documentFormattingProvider
      :documentRangeFormattingProvider
      :documentOnTypeFormattingProvider
-     :colorProvider)))
+     :colorProvider)
+   :config
+   ;; Disable jsonrpc log
+   (fset #'jsonrpc--log-event #'ignore)))
 
 (use-package eglot-booster
   :vc (:fetcher github :repo jdtsmith/eglot-booster)

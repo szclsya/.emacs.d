@@ -15,7 +15,12 @@
   (general-create-definer le-def
     :keymaps 'le-map
     :prefix "SPC")
+  (le-def
+    :keymaps 'normal
+    "za" 'profiler-start
+    "zb" 'profiler-stop)
   )
+
 
 (provide 'init-keybinding)
 ;;; init-keybinding.el ends here

@@ -10,6 +10,7 @@
   "mc" 'hledger-capture)
 
 (use-package hledger-mode
+  :defer 1
   :mode ("\\.journal\\'" "\\.hledger\\'")
   :bind (("C-c j" . hledger-run-command)
          :map hledger-mode-map
@@ -22,8 +23,6 @@
     (interactive)
     (hledger-next-or-new-entry)
     (hledger-pulse-momentary-current-entry))
-
-
   (defun hledger/prev-entry ()
     "Move to last entry and pulse."
     (interactive)
@@ -38,6 +37,7 @@
   )
 
 (use-package hledger-input
+  :defer 1
   :pin manual
   :load-path "packages/rest/hledger-mode/"
   :config

@@ -4,6 +4,7 @@
 
 (use-package cc-mode
   :ensure nil
+  :after eglot
   :custom
   (c-default-style "k&r")
   (c-basic-offset 4)

@@ -7,7 +7,7 @@
   ((conf-mode . tempel-setup-capf)
    (prog-mode . tempel-setup-capf)
    (text-mode . tempel-setup-capf))
-  :init
+  :preface
   ;; Setup completion at point
   (defun tempel-setup-capf ()
     ;; Add the Tempel Capf to `completion-at-point-functions'.
@@ -20,7 +20,7 @@
     (setq-local completion-at-point-functions
                 (cons #'tempel-expand
                       completion-at-point-functions)))
-
+  :init
   (global-tempel-abbrev-mode))
 
 (defun tempel-reload ()

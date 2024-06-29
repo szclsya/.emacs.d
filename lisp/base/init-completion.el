@@ -66,8 +66,10 @@
 (use-package corfu
   :custom
   (corfu-auto t)
-  (corfu-auto-delay 0.25)
-  (corfu-auto-prefix 1)
+  (corfu-quit-no-match t)
+  (corfu-auto-delay 0.2)
+  (corfu-auto-prefix 2)
+  (completion-style '(basic))
   (corfu-preselect 'directory)
   ;; Orderless
   (corfu-separator ?\s)

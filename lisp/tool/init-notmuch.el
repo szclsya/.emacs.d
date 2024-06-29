@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(le-def
+  :keymaps 'normal
+  "mm" 'notmuch)
 
 (use-package notmuch
   :defer t
@@ -35,11 +38,13 @@
      ("Leo Shen <i@szclsya.me>")
      ("Leo Shen <szclsya@gmail.com>")
      ("Leo Shen <y266shen@csclub.uwaterloo.ca>")
-     ))
+     )
+   )
   (notmuch-fcc-dirs
    '(
-     ("i@szclsya.me" . "lecs/Sent")
-     ("csc" . "csc/Sent")
+     ("i@szclsya.me" . "\"lecs/Sent Items\" +sent -unread -inbox")
+     ("szclsya@gmail.com" . "\"gmail/[Gmail]/Sent Mail\" +sent -unread -inbox")
+     ("csc" . "\"csc/Sent\" +sent -unread -inbox")
      )
    )
   :preface
@@ -64,8 +69,14 @@
                (not (y-or-n-p "Subject is empty, send anyway? ")))
       (error "Sending message cancelled: empty subject.")))
   :config
-  (evil-define-key 'normal notmuch-search-mode-map "R" 'notmuch-search-reply-to-thread)
-  (evil-define-key 'normal notmuch-show-mode-map "R" 'notmuch-show-reply-sender)
+  ;;(setq message-sendmail-envelope-from 'header)
+
+  (evil-define-key 'normal notmuch-hello-mode-map "m" (lambda () (interactive) (notmuch-mua-new-mail)))
+  ;; Press R for reply
+  (evil-define-key 'normal notmuch-search-mode-map "R" (lambda () (interactive) (notmuch-search-reply)))
+  (evil-define-key 'normal notmuch-tree-mode-map "R" (lambda () (interactive) (notmuch-tree-reply)))
+  (evil-define-key 'normal notmuch-show-mode-map "R" (lambda () (interactive) (notmuch-show-reply-sender)))
+  ;; Press r for mark-as-read
   (evil-define-key 'normal notmuch-search-mode-map "r" 'notmuch-search-mark-read)
   (evil-define-key 'normal notmuch-tree-mode-map "r" 'notmuch-tree-mark-read)
   (add-hook 'message-send-hook 'my-notmuch-mua-empty-subject-check)
@@ -77,15 +88,13 @@
   :custom
   (mail-user-agent 'notmuch-user-agent)
   (org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t")
-  (org-msg-default-alternatives '((new      . (text html))
-                                  (reply-to-html    . (text html))
-                                  (reply-to-text    . (text)))
-                                )
+  (org-msg-default-alternatives '((new           . (text))
+                                  (reply-to-html . (text html))
+                                  (reply-to-text . (text))))
   (org-msg-convert-citation t)
   :config
   (org-msg-mode 1)
   )
-
 
 (use-package message
   :ensure nil

@@ -3,8 +3,10 @@
 ;;; Code:
 
 ;; Font settings
-(set-face-attribute 'default nil :font (font-spec :family "monospace" :size 16))
-
+(set-face-attribute 'default nil :font (font-spec :family "Sarasa Term SC" :size 16))
+(set-fontset-font t 'han (font-spec :family "Sarasa Gothic SC" :size 16))
+(set-fontset-font t 'cjk-misc (font-spec :family "Sarasa Gothic SC" :size 16))
+(set-fontset-font t 'kana (font-spec :family "Sarasa Gothic J" :size 16))
 
 ;; Disable toolbar and  menubar
 (menu-bar-mode -1)

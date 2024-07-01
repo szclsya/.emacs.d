@@ -7,6 +7,7 @@
 (set-fontset-font t 'han (font-spec :family "Sarasa Gothic SC" :size 16))
 (set-fontset-font t 'cjk-misc (font-spec :family "Sarasa Gothic SC" :size 16))
 (set-fontset-font t 'kana (font-spec :family "Sarasa Gothic J" :size 16))
+(setq inhibit-compacting-font-caches t)
 
 ;; Disable toolbar and  menubar
 (menu-bar-mode -1)

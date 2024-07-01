@@ -67,7 +67,7 @@
   :custom
   (corfu-auto t)
   (corfu-quit-no-match t)
-  (corfu-auto-delay 0.2)
+  (corfu-auto-delay 0.3)
   (corfu-auto-prefix 2)
   (completion-style '(basic))
   (corfu-preselect 'directory)

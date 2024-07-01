@@ -14,24 +14,32 @@
   (notmuch-hello-auto-refresh t)
   (notmuch-search-oldest-first nil)
   (notmuch-draft-folder "Drafts")
-  ;; View
-  (notmuch-show-height-limit 5)
-  (notmuch-show-max-text-part-size 50000)
+  ;; ====== View ======
+  ;; Allow folding in tree view
   (notmuch-tree-outline-enabled t)
   (notmuch-saved-searches
-  '((:name "inbox" :query "tag:inbox and not tag:delete" :search-type tree)
-    (:name "unread" :query "tag:unread" :search-type tree)
-    (:name "sent" :query "tag:sent")
-    (:name "drafts" :query "tag:draft")
-    (:name "all mail" :query "*" :search-type tree))
-  )
-  ;; Tags
+   '((:name "unread" :query "tag:unread and tag:inbox" :search-type tree)
+     (:name "inbox" :query "tag:inbox and not tag:delete" :search-type tree)
+     (:name "sent" :query "tag:sent")
+     (:name "drafts" :query "tag:draft")
+     (:name "all mail" :query "*" :search-type tree))
+   )
+  ;; Show text/html in favor of text/plain
+  ;; https://notmuchmail.org/pipermail/notmuch/2015/020190.html
+  (notmuch-multipart/alternative-discouraged '("text/plain" "text/html"))
+  ;; ====== Tags ======
   (notmuch-show-all-tags-list t)
   (notmuch-message-replied-tags '("+replied"))
   (notmuch-message-forwarded-tags '("+forwarded"))
   (notmuch-show-mark-read-tags '("-unread"))
   (notmuch-draft-tags '("+draft"))
-  ;; Sending
+  (notmuch-archive-tags '("-inbox" "-unread"))
+  ;; ====== Replying ======
+  ;; Use the gmail style for citing when replying (On <Time> <Sender> wrote:)
+  (message-cite-style 'message-cite-style-gmail)
+  (message-citation-line-function 'message-insert-formatted-citation-line)
+  ;; ====== Sending ======
+  ;; Ask which sender to use
   (notmuch-always-prompt-for-sender t)
   (notmuch-identities
    '(
@@ -40,9 +48,10 @@
      ("Leo Shen <y266shen@csclub.uwaterloo.ca>")
      )
    )
+  ;; The \" is necessary when using mail dir with whitespaces
   (notmuch-fcc-dirs
    '(
-     ("i@szclsya.me" . "\"lecs/Sent Items\" +sent -unread -inbox")
+     ("i@szclsya.me" . "\"lecs/Sent\" +sent -unread -inbox")
      ("szclsya@gmail.com" . "\"gmail/[Gmail]/Sent Mail\" +sent -unread -inbox")
      ("csc" . "\"csc/Sent\" +sent -unread -inbox")
      )
@@ -69,20 +78,22 @@
                (not (y-or-n-p "Subject is empty, send anyway? ")))
       (error "Sending message cancelled: empty subject.")))
   :config
-  ;;(setq message-sendmail-envelope-from 'header)
-
-  (evil-define-key 'normal notmuch-hello-mode-map "m" (lambda () (interactive) (notmuch-mua-new-mail)))
+  ;; For some reason these don't work with the ~:general~ use-package keyword
+  ;; so just use the good-old ~evil-define-key~
+  (evil-define-key 'normal notmuch-hello-mode-map "m" 'notmuch-mua-new-mail)
   ;; Press R for reply
-  (evil-define-key 'normal notmuch-search-mode-map "R" (lambda () (interactive) (notmuch-search-reply)))
-  (evil-define-key 'normal notmuch-tree-mode-map "R" (lambda () (interactive) (notmuch-tree-reply)))
-  (evil-define-key 'normal notmuch-show-mode-map "R" (lambda () (interactive) (notmuch-show-reply-sender)))
+  (evil-define-key 'normal notmuch-search-mode-map "R" 'notmuch-search-reply)
+  (evil-define-key 'normal notmuch-tree-mode-map "R" 'notmuch-tree-reply-sender)
+  (evil-define-key 'normal notmuch-show-mode-map "R" 'notmuch-show-reply-sender)
   ;; Press r for mark-as-read
   (evil-define-key 'normal notmuch-search-mode-map "r" 'notmuch-search-mark-read)
   (evil-define-key 'normal notmuch-tree-mode-map "r" 'notmuch-tree-mark-read)
   (add-hook 'message-send-hook 'my-notmuch-mua-empty-subject-check)
+  ;; Prevent show window to take up too much screen space
   (add-hook 'notmuch-show-hook 'balance-windows)
   )
 
+;; Use org-mode to write HTML messages
 (use-package org-msg
   :after notmuch
   :custom
@@ -100,12 +111,12 @@
   :ensure nil
   :defer 1
   :custom
+  ;; Use system ~msmtp~ to send mails, because the internal smtp client kinda sucks
   (message-default-mail-headers "Cc: \nBcc: \n")
   (message-sendmail-envelope-from 'header)
   (message-kill-buffer-on-exit t)
   (sendmail-program "/usr/bin/msmtp")
-  (send-mail-function 'sendmail-send-it)
-  )
+  (send-mail-function 'sendmail-send-it))
 
 
 (provide 'init-notmuch)

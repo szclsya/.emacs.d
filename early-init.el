@@ -21,7 +21,7 @@
   (startup-redirect-eln-cache
    (convert-standard-filename
     (expand-file-name "eln-cache" no-littering-var-directory))))
-;; And cleanup old AOT cache
+;; And cleanup old AOT cache, deprecated in Emacs 29 I believe
 (setq native-compile-prune-cache t)
 
 ;; And also package dir
@@ -29,6 +29,9 @@
 
 ;; Calculate use-package-report
 (setq use-package-compute-statistics t)
+
+;; Turn me on when debugging
+;;(setq toggle-debug-on-error t)
 
 (provide 'early-init)
 ;;; early-init.el ends here

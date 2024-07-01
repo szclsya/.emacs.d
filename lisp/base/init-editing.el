@@ -42,9 +42,7 @@
 (use-package avy
   :general
   (:states 'normal
-          "s" 'evil-avy-goto-char-timer
-          "f" 'evil-avy-goto-char-in-line
-          "gl" 'evil-avy-goto-line
+          "f" 'evil-avy-goto-char-2
           ":" 'avy-resume))
 
 ;; Highlight TODO and FIXME
@@ -55,6 +53,12 @@
 (use-package hl-line
   :ensure nil
   :config (global-hl-line-mode))
+
+;; Highlight current symbol throughout buffer
+(use-package highlight-symbol
+  :defer 1
+  :custom (highlight-symbol-idle-delay 0.5)
+  :hook ((prog-mode . highlight-symbol-mode)))
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

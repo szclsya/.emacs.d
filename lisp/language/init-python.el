@@ -2,7 +2,15 @@
 ;;; Commentary: 
 ;;; Code:
 
-(setq python-shell-interpreter "python3")
+(use-package python-mode
+  :ensure nil
+  :after eglot
+  :custom
+  (python-shell-interpreter "python3")
+  :hook
+  ((python-mode-hook . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs '((python-mode) "pyright-langserver")))
 
 ;; (use-package lsp-pyright
 ;;   :defer t

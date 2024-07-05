@@ -18,15 +18,16 @@
 ;; Need newline at end of file
 (setq require-final-newline t)
 
-(use-package fill-column-indicator
-  :config
-  (setq-default fci-rule-column 80))
+(use-package display-fill-column-indicator
+  :ensure nil
+  :custom (display-fill-column-indicator-column (- 120 1))
+  :hook ((prog-mode . display-fill-column-indicator-mode)))
 
 ;; Switched to vundo because undo-tree requires a minor mode
 (use-package vundo
   :after evil
   :custom
-  (vundo-compact-display t)
+  ;;(vundo-compact-display t)
   (vundo-glyph-alist vundo-unicode-symbols)
   (vundo-roll-back-on-quit nil)
   :general

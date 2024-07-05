@@ -4,6 +4,8 @@
 
 (use-package flymake
   :ensure nil
+  :custom
+  (flymake-no-changes-timeout 1)
   :hook
   ((prog-mode . flymake-mode)))
 

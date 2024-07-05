@@ -15,6 +15,9 @@
 	 ("https://sh.alynx.moe/atom.xml" blog)
 	 ("http://laike9m.com/blog/rss" blog)
 	 ("https://hfo4.github.io/atom.xml" blog)
+     ("https://pyonpyon.today/rss.xml" blog)
+     ("https://typeblog.net/feed" blog)
+     ("https://blog.yuuta.moe/index.xml" blog)
 
 	 ("https://xkcd.com/atom.xml" webcomic)
 

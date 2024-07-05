@@ -20,7 +20,7 @@ emacs-lisp-mode
         "(provide '" (s file) ")" n
         ";;; " (s file) ".el ends here")
 
-sh-bash-mode
+sh-bash-mode bash-ts-mode
 
 (! & "#!/usr/bin/env bash" n "set -euo pipefail" n q)
 

@@ -19,7 +19,7 @@
   (notmuch-tree-outline-enabled t)
   (notmuch-saved-searches
    '((:name "unread" :query "tag:unread and tag:inbox" :search-type tree)
-     (:name "inbox" :query "tag:inbox and not tag:delete" :search-type tree)
+     (:name "inbox" :query "tag:inbox and not tag:deleted" :search-type tree)
      (:name "sent" :query "tag:sent")
      (:name "drafts" :query "tag:draft")
      (:name "all mail" :query "*" :search-type tree))
@@ -81,11 +81,14 @@
   ;; For some reason these don't work with the ~:general~ use-package keyword
   ;; so just use the good-old ~evil-define-key~
   (evil-define-key 'normal notmuch-hello-mode-map "m" 'notmuch-mua-new-mail)
-  ;; Press R for reply
+  ;; R for reply
   (evil-define-key 'normal notmuch-search-mode-map "R" 'notmuch-search-reply)
   (evil-define-key 'normal notmuch-tree-mode-map "R" 'notmuch-tree-reply-sender)
   (evil-define-key 'normal notmuch-show-mode-map "R" 'notmuch-show-reply-sender)
-  ;; Press r for mark-as-read
+  ;; F for forward
+  (evil-define-key 'normal notmuch-tree-mode-map "F" 'notmuch-tree-forward-message)
+  (evil-define-key 'normal notmuch-show-mode-map "F" 'notmuch-show-forward-message)
+  ;; r for mark-as-read
   (evil-define-key 'normal notmuch-search-mode-map "r" 'notmuch-search-mark-read)
   (evil-define-key 'normal notmuch-tree-mode-map "r" 'notmuch-tree-mark-read)
   (add-hook 'message-send-hook 'my-notmuch-mua-empty-subject-check)

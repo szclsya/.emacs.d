@@ -25,6 +25,7 @@
      ("https://fasterthanli.me/index.xml" tech)
 
 	 ("https://www.vincehut.top/?feed=atom" inspiration)
+     ("https://selfh.st/rss/" newsletter)
      ))
 
   :config

@@ -6,6 +6,11 @@
 ;; See ~init-performance~
 (defconst emacs-start-time (current-time))
 
+;; Disable toolbar and  menubar
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
 ;; Allow up to 1GiB of RAM during startup
 ;; This will be later reduced in ~init-performance~
 (setq gc-cons-threshold (* 1024 1024 1024)

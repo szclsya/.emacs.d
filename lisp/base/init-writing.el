@@ -8,7 +8,10 @@
   "S" 'jinx-languages)
 
 (use-package jinx
-  :hook (emacs-startup . global-jinx-mode))
+  :hook (emacs-startup . global-jinx-mode)
+  :config
+  (add-to-list 'jinx-exclude-regexps '(t "\\cc"))
+  )
 
 (use-package langtool
   :config

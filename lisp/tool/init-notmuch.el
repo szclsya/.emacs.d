@@ -94,6 +94,8 @@
   (add-hook 'message-send-hook 'my-notmuch-mua-empty-subject-check)
   ;; Prevent show window to take up too much screen space
   (add-hook 'notmuch-show-hook 'balance-windows)
+  ;; Sign messages by default.
+  (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
   )
 
 ;; Use org-mode to write HTML messages

@@ -60,6 +60,7 @@
 (add-to-list 'load-path (expand-file-name "lisp/language" user-emacs-directory))
 (require 'init-latex)
 (require 'init-c)
+(require 'init-shell)
 (require 'init-web)
 (require 'init-racket)
 (require 'init-markdown)

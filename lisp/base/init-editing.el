@@ -18,6 +18,13 @@
 ;; Need newline at end of file
 (setq require-final-newline t)
 
+;; Warp by character when dealing with CJK characters
+(setq word-wrap-by-category t)
+
+;; Remove tailing whitespace on each line
+(add-hook 'before-save-hook
+          'delete-trailing-whitespace)
+
 (use-package display-fill-column-indicator
   :ensure nil
   :custom (display-fill-column-indicator-column (- 120 1))
@@ -60,6 +67,20 @@
   :defer 1
   :custom (highlight-symbol-idle-delay 0.5)
   :hook ((prog-mode . highlight-symbol-mode)))
+
+;; Indentation aid
+(use-package indent-bars
+  :defer 3
+  :hook ((python-mode yaml-mode) . indent-bars-mode)
+  ;; Below are for tree-sitter
+  :config
+  (require 'indent-bars-ts)
+  :custom
+  (indent-bars-treesit-support t)
+  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  ;; Add other languages as needed
+  (indent-bars-treesit-scope '((python function_definition class_definition for_statement
+	  if_statement with_statement while_statement))))
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

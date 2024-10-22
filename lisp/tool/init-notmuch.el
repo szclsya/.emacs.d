@@ -4,7 +4,7 @@
 
 (le-def
   :keymaps 'normal
-  "mm" 'notmuch)
+  "m" 'notmuch)
 
 (use-package notmuch
   :defer t

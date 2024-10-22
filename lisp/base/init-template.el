@@ -7,6 +7,9 @@
   ((conf-mode . tempel-setup-capf)
    (prog-mode . tempel-setup-capf)
    (text-mode . tempel-setup-capf))
+  :bind
+  (:map tempel-map
+        ("TAB" . tempel-next))
   :preface
   ;; Setup completion at point
   (defun tempel-setup-capf ()

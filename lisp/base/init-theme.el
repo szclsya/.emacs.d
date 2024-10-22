@@ -9,8 +9,17 @@
 (set-fontset-font t 'kana (font-spec :family "Sarasa Gothic J" :size 16))
 (setq inhibit-compacting-font-caches t)
 
-;; Disable welcome screen
-(setq inhibit-startup-screen t)
+(setq
+ ;; Disable welcome screen
+ inhibit-startup-screen t
+ ;; Precision scrolling
+ ;; Use minibuffer instead of dialog boxes
+ use-dialog-box nil
+ ;; y/n instead of yes/no
+ use-short-answers t
+ ;; Show column number and file size in modeline
+ column-number-mode t
+ size-indication-mode t)
 
 ;; Enable line number dislay
 (global-display-line-numbers-mode)
@@ -18,15 +27,12 @@
 ;; highlight end of bracket
 (show-paren-mode 1)
 
-;; Show column number and file size in modeline
-(setq column-number-mode t
-      size-indication-mode t)
-
 ;; rainbow-delimiters!
 (use-package rainbow-delimiters
   :hook
   ((prog-mode . rainbow-delimiters-mode)))
 
+;; We install the icons themselves here, integration with other plugins will live in their corresponding place
 (use-package nerd-icons)
 
 (use-package doom-themes

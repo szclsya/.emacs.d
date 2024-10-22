@@ -27,16 +27,23 @@
   ;; Tidy shadowed file names
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
+(le-def :keymaps 'normal "." 'embark-act)
 
-(use-package consult)
+(use-package consult
+  :defer t
+  :init
+  (advice-add #'register-preview :override #'consult-register-window)
+
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref))
 
 (use-package marginalia
   :ensure t
   :custom
   (marginalia-max-relative-age 0)
   (marginalia-align 'right)
-  :config
-  (marginalia-mode))
+  :hook
+  (after-init . marginalia-mode))
 
 ;; Use nerd-icons because all-the-icons-completion have alignment issues
 (use-package nerd-icons-completion
@@ -49,6 +56,7 @@
   :ensure t
   :custom
   (completion-styles '(orderless basic))
+  (completion-category-default nil)
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package cape
@@ -89,11 +97,18 @@
   (global-corfu-mode)
   (corfu-popupinfo-mode))
 
-
 (use-package nerd-icons-corfu
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+(use-package treesit-auto
+  :after emacs
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'nil)
+  (global-treesit-auto-mode t))
 
 (use-package emacs
   :init

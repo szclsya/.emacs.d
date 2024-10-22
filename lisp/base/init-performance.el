@@ -1,5 +1,5 @@
 ;;; init-performance.el --- performance tools & tweaks -*- lexical-binding: t; -*-
-;;; Commentary: 
+;;; Commentary:
 ;;; Code:
 
 (use-package gcmh
@@ -18,13 +18,6 @@
                              (float-time
                               (time-subtract after-init-time emacs-start-time)))
                      gcs-done)))
-
-(use-package esup
-  :defer 3
-  :pin melpa-stable
-  :custom
-  ;; See https://github.com/jschaf/esup/issues/85#issuecomment-1130110196
-  (esup-depth 0))
 
 (provide 'init-performance)
 ;;; init-performance.el ends here

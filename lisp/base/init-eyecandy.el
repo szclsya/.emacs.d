@@ -1,5 +1,5 @@
-;;; init-ligature.el --- Ligature settings -*- lexical-binding: t; -*-
-;;; Commentary: Works only on Emacs28+
+;;; init-eyecandy.el --- Please my eyes -*- lexical-binding: t -*-
+;;; Commentary:
 ;;; Code:
 
 (use-package ligature
@@ -17,5 +17,7 @@
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
-(provide 'init-ligature)
-;;; init-ligature.el ends here
+
+
+(provide 'init-eyecandy)
+;;; init-eyecandy.el ends here

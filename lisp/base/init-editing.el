@@ -8,18 +8,19 @@
 ;; 4 spaces for a tab
 (setq-default tab-width 4)
 
-;; Don't beep
-(setq visible-bell 1)
+(setq
+ ;; Don't beep
+ visible-bell 1
+ ;; Use org-mode as default Scratch buffer mode
+ initial-major-mode 'org-mode
+ initial-scratch-message ""
+ ;; Need newline at end of file
+ require-final-newline t
+ ;; Warp by character when dealing with CJK characters
+ word-wrap-by-category t)
 
-;; Use org-mode as default Scratch buffer mode
-(setq initial-major-mode 'org-mode)
-(setq initial-scratch-message "")
-
-;; Need newline at end of file
-(setq require-final-newline t)
-
-;; Warp by character when dealing with CJK characters
-(setq word-wrap-by-category t)
+;; Automatically refresh buffer when files change on disk
+(global-auto-revert-mode 1)
 
 ;; Remove tailing whitespace on each line
 (add-hook 'before-save-hook
@@ -38,8 +39,7 @@
   (vundo-glyph-alist vundo-unicode-symbols)
   (vundo-roll-back-on-quit nil)
   :general
-  (:states 'normal
-        "u" 'vundo)
+  (:states 'normal "u" 'vundo)
   (:keymaps 'vundo-mode-map
         "l" 'vundo-forward
         "h" 'vundo-backward

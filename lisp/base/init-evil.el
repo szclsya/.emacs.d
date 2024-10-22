@@ -1,5 +1,5 @@
 ;;; init-evil.el --- Evil mode configuration -*- lexical-binding: t; -*-
-;;; Commentary: 
+;;; Commentary:
 ;;; Code:
 
 (le-def

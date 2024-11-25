@@ -51,7 +51,9 @@
   (org-refile-targets
    '(("~/doc/gtd/gtd.org" :maxlevel . 3)
      ("~/doc/gtd/archive.org" :maxlevel . 2)
-     )))
+     ))
+  :config
+  (setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil))))
 
 (provide 'init-org)
 ;;; init-org.el ends here

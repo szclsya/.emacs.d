@@ -1,5 +1,5 @@
 ;;; init-lsp.el --- Language Server Procotol configuations -*- lexical-binding: t; -*-
-;;; Commentary: 
+;;; Commentary:
 ;;; Code:
 
 
@@ -24,7 +24,8 @@
    (fset #'jsonrpc--log-event #'ignore)))
 
 (use-package eglot-booster
-  :vc (:fetcher github :repo jdtsmith/eglot-booster)
+  :vc (:fetcher github :repo "jdtsmith/eglot-booster")
+  :ensure nil
   :after eglot
   :config
   (if (and use-emacs-lsp-booster

@@ -15,9 +15,11 @@
 ;; Configure use-package
 ;; This var is configured in local.el
 (if (and (boundp use-chinese-elpa-mirrors) use-chinese-elpa-mirrors)
-	(setq package-archives '(("melpa" . "https://mirrors.bfsu.edu.cn/elpa/melpa/")
+	(setq package-archives '(("gnu" . "https://mirrors.bfsu.edu.cn/elpa/gnu/")
+                             ("melpa" . "https://mirrors.bfsu.edu.cn/elpa/melpa/")
 							 ("melpa-stable" . "https://mirrors.bfsu.edu.cn/elpa/stable-melpa/")))
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+  (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                           ("melpa" . "https://melpa.org/packages/")
 						   ("melpa-stable" . "https://stable.melpa.org/packages/"))))
 
 ;; Auto install by default

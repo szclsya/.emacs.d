@@ -26,12 +26,6 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
-;; Add ~:vc~ keyword to use-package
-;; TODO Remove me after upgrading MSEV to 30
-(unless (package-installed-p 'vc-use-package)
-  (package-vc-install "https://github.com/slotThe/vc-use-package"))
-(require 'vc-use-package)
-
 ;; No littering
 (use-package no-littering
   :init
@@ -86,3 +80,4 @@
 (require 'init-notmuch)
 
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)

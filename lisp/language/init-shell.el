@@ -7,8 +7,13 @@
 (use-package emacs
   :ensure nil
   :config
-  (setq sh-basic-offset 2)
+  (setq sh-basic-offset 4)
+  (add-to-list 'auto-mode-alist '("APKBUILD" . shell-script-mode))
+  (add-hook 'sh-mode-hook 'whitespace-mode)
+  ;; Use POSIX shell mode by default
+  (setq sh-shell-file "/bin/sh")
   )
+
 
 (use-package flymake-shellcheck
   :hook

@@ -24,7 +24,7 @@
    (fset #'jsonrpc--log-event #'ignore)))
 
 (use-package eglot-booster
-  :vc (:fetcher github :repo "jdtsmith/eglot-booster")
+  :vc (:url "https://github.com/jdtsmith/eglot-booster" :branch "main")
   :ensure nil
   :after eglot
   :config

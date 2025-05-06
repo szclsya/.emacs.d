@@ -5,11 +5,9 @@
 (use-package rust-mode
   :commands (rust-mode)
   :defer 2
-  ;; treesitter isn't ready with rust yet
-  ;;:custom
-  ;;(rust-mode-treesitter-derive t)
   :hook
-  ((rust-mode . eglot-ensure)))
+  (((rust-mode rust-ts-mode) . eglot-ensure))
+)
 
 (use-package cargo
   :after rust-mode

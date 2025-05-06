@@ -32,20 +32,13 @@
   :hook ((prog-mode . display-fill-column-indicator-mode)))
 
 ;; Switched to vundo because undo-tree requires a minor mode
-(use-package vundo
+(use-package undo-tree
   :after evil
-  :custom
-  ;;(vundo-compact-display t)
-  (vundo-glyph-alist vundo-unicode-symbols)
-  (vundo-roll-back-on-quit nil)
+  :custom (undo-tree-visualizer-timestamps t)
   :general
-  (:states 'normal "u" 'vundo)
-  (:keymaps 'vundo-mode-map
-        "l" 'vundo-forward
-        "h" 'vundo-backward
-        "j" 'vundo-next
-        "k" 'vundo-previous
-        "q" 'vundo-exit))
+  (:states 'normal "u" 'undo-tree-visualize)
+  :init (global-undo-tree-mode))
+
 
 (use-package avy
   :general

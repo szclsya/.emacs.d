@@ -2,12 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package rust-mode
-  :commands (rust-mode)
-  :defer 2
-  :hook
-  (((rust-mode rust-ts-mode) . eglot-ensure))
-)
+(use-package rustic
+  :custom
+  (rustic-lsp-client 'eglot)
+  (rustic-cargo-use-last-stored-arguments t))
+
+(use-package eglot
+  :hook ((rust-ts-mode . (lambda () (rustic-mode eglot-ensure)))))
 
 (use-package cargo
   :after rust-mode

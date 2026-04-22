@@ -2,11 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package gcmh
-  :init
-  (setopt gcmh-verbose t)
-  (gcmh-mode 1))
-
 ;; Might be useful for lsp
 (setq read-process-output-max (* 4 1024 1024))
 

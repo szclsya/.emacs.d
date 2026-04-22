@@ -31,14 +31,12 @@
   :custom (display-fill-column-indicator-column (- 120 1))
   :hook ((prog-mode . display-fill-column-indicator-mode)))
 
-;; Switched to vundo because undo-tree requires a minor mode
 (use-package undo-tree
   :after evil
   :custom (undo-tree-visualizer-timestamps t)
   :general
   (:states 'normal "u" 'undo-tree-visualize)
   :init (global-undo-tree-mode))
-
 
 (use-package avy
   :general

@@ -4,14 +4,13 @@
 
 (le-def
   :keymaps 'normal
-  "s" 'jinx-correct
-  "S" 'jinx-languages)
+  "c" 'jinx-correct
+  "C" 'jinx-languages)
 
 (use-package jinx
   :hook (emacs-startup . global-jinx-mode)
   :config
-  (add-to-list 'jinx-exclude-regexps '(t "\\cc"))
-  )
+  (add-to-list 'jinx-exclude-regexps '(t "\\cc")))
 
 (use-package langtool
   :config

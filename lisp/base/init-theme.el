@@ -37,6 +37,8 @@
 
 (use-package doom-themes
   :config
+  (setcdr (assoc 'gnus-group-news-low-empty doom-themes-base-faces)
+          '(:inherit 'gnus-group-mail-1-empty :weight 'normal))
   (load-theme 'doom-vibrant t))
 
 (use-package doom-modeline

@@ -5,11 +5,15 @@
 ;;; Mini-buffer completion
 (use-package vertico
   :ensure t
+  :pin melpa-stable
+  :bind (:map vertico-map
+              ("<tab>" . vertico-next)
+              ("<backtab>" . vertico-previous))
   :custom
   (vertico-cycle t)
   (vertico-resize nil)
   (vertico-count 12)
-  :config
+  :init
   (vertico-mode))
 
 (use-package savehist
@@ -19,6 +23,7 @@
 (use-package vertico-directory
   :after vertico
   :ensure nil
+  :pin melpa-stable
   :bind (:map vertico-map
               ("RET" . vertico-directory-enter)
               ("DEL" . vertico-directory-delete-char)
@@ -26,8 +31,6 @@
               ("C-<return>" . vertico-exit-input))
   ;; Tidy shadowed file names
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
-
-(le-def :keymaps 'normal "." 'embark-act)
 
 (use-package consult
   :defer t
@@ -39,6 +42,7 @@
 
 (use-package marginalia
   :ensure t
+  :pin melpa-stable
   :custom
   (marginalia-max-relative-age 0)
   (marginalia-align 'right)
@@ -54,10 +58,12 @@
 
 (use-package orderless
   :ensure t
+  :pin melpa-stable
   :custom
   (completion-styles '(orderless basic))
   (completion-category-default nil)
-  (completion-category-overrides '((file (styles basic partial-completion)))))
+  (completion-category-overrides '((file (styles basic partial-completion))))
+  (completion-pcm-leading-wildcard t))
 
 (use-package cape
   :init
@@ -76,8 +82,11 @@
   :custom
   (corfu-auto t)
   (corfu-quit-no-match t)
-  (corfu-auto-delay 0.3)
+  (corfu-auto-delay 0.25)
   (corfu-auto-prefix 2)
+  ;; Always have the same width
+  (corfu-min-width 80)
+  (corfu-max-width corfu-min-width)
   (completion-style '(basic))
   (corfu-preselect 'directory)
   ;; Orderless
@@ -88,10 +97,14 @@
   ;; popup documentation
   (corfu-popupinfo-delay 0.2)
   (text-mode-ispell-word-completion nil)
+  ;; no indent when competing
+  (tab-always-indent 'complete)
+  (competion-cycle-threshold nil)
   :bind
   (:map corfu-map
-        ("TAB" . corfu-next)
-        ([tab] . corfu-next)
+        ("<tab>" . corfu-next)
+        ("<backtab>" . corfu-previous)
+        ("<backspace>" . corfu-quit)
         ("RET" . corfu-complete-or-insert))
   :init
   (global-corfu-mode)

@@ -6,6 +6,15 @@
 
 (use-package dockerfile-mode)
 
+;; use tree-sitter
+(use-package treesit-auto
+  :after emacs
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'nil)
+  (global-treesit-auto-mode t))
+
 ;; Lua. treesitter should be enough for my limited usecase
 (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-ts-mode))
 

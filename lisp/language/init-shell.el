@@ -13,10 +13,5 @@
   (setq sh-shell-file "/bin/sh")
   )
 
-
-(use-package flymake-shellcheck
-  :hook
-  ((sh-mode . flymake-shellcheck-load)))
-
 (provide 'init-shell)
 ;;; init-shell.el ends here

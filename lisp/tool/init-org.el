@@ -35,10 +35,9 @@
   (org-extend-today-until 3)
   ;; Rest
   (org-todo-keyword-faces
-   '(("TODO" . (:foreground "red" :weight "bold"))
-     ("WAITING" . (:foreground "red" :weight "bold"))
-     ("WAITING" . (:foreground "orange" :weight "bold"))
-     ("DONE" . (:foreground "green" :weight "bold"))
+   '(("TODO" . (:foreground "red" :weight bold))
+     ("WAITING" . (:foreground "orange" :weight bold))
+     ("DONE" . (:foreground "green" :weight bold))
      ("CANCELLED" . (:background "grey" :foreground "black"))))
   (org-agenda-files '("~/doc/gtd/gtd.org"))
   (org-capture-templates

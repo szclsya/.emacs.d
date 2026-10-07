@@ -6,6 +6,10 @@
 
 (use-package dockerfile-mode)
 
+(use-package qml-mode)
+
+(use-package ron-mode)
+
 ;; use tree-sitter
 (use-package treesit-auto
   :after emacs

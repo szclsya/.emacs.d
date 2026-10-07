@@ -11,26 +11,27 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-;; Allow up to 1GiB of RAM during startup
-;; This will be later reduced in ~init-performance~
-(setq gc-cons-threshold (* 1024 1024 1024)
-      gc-cons-percentage 0.8)
+;; No GC tuning thanks to IGC
 
-;; no-littering's var directory should live in XDG_CACHE_HOME
 (require 'xdg)
-(setq no-littering-var-directory
-      (expand-file-name "emacs" (xdg-cache-home)))
+(defconst init-state-dir (expand-file-name "emacs" (xdg-data-home)))
+(defconst init-cache-dir (expand-file-name "emacs" (xdg-cache-home)))
 
-;; Move ~eln-cache~ to no-littering place
+(setq no-littering-var-directory init-state-dir)
+
+(setq savehist-file     (expand-file-name "savehist.el" init-state-dir)
+      project-list-file (expand-file-name "project-list.el" init-state-dir))
+
+;; Move ~eln-cache~ out of the config directory, into the disposable one
 (when (fboundp 'startup-redirect-eln-cache)
   (startup-redirect-eln-cache
    (convert-standard-filename
-    (expand-file-name "eln-cache" no-littering-var-directory))))
+    (expand-file-name "eln-cache" init-cache-dir))))
 ;; And cleanup old AOT cache, deprecated in Emacs 29 I believe
 (setq native-compile-prune-cache t)
 
-;; And also package dir
-(setq package-user-dir (expand-file-name "elpa" no-littering-var-directory))
+;; Package dir: persistent, alongside no-littering's var files
+(setq package-user-dir (expand-file-name "elpa" init-state-dir))
 
 ;; Calculate use-package-report
 (setq use-package-compute-statistics t)

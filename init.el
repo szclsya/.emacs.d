@@ -4,7 +4,7 @@
 
 (setq msev "28.1")
 (when (version< emacs-version msev)
-  (message (format "Emacs version too old (%f<%f). Things might be broken."
+  (message (format "Emacs version too old (%s<%s). Things might be broken."
                    emacs-version msev)))
 
 ;; Load modules
@@ -14,7 +14,7 @@
 
 ;; Configure use-package
 ;; This var is configured in local.el
-(if (and (boundp use-chinese-elpa-mirrors) use-chinese-elpa-mirrors)
+(if (and (boundp 'use-chinese-elpa-mirrors) use-chinese-elpa-mirrors)
 	(setq package-archives '(("gnu" . "https://mirrors.bfsu.edu.cn/elpa/gnu/")
                              ("melpa" . "https://mirrors.bfsu.edu.cn/elpa/melpa/")
 							 ("melpa-stable" . "https://mirrors.bfsu.edu.cn/elpa/stable-melpa/")))
@@ -26,21 +26,9 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
-;; No littering
 (use-package no-littering
-  :init
-  (setq no-littering-var-directory "~/.cache/emacs")
-  (setq auto-save-file-name-transforms
-        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   :config
   (no-littering-theme-backups))
-
-;; Startup benchmarking
-(use-package benchmark-init
-  :ensure t
-  :config
-  ;; To disable collection of benchmark data after init is done.
-  (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 ;; Necessary features
 (add-to-list 'load-path (expand-file-name "lisp/base" user-emacs-directory))
@@ -75,9 +63,6 @@
 (require 'init-elfeed)
 (require 'init-org)
 (require 'init-magit)
-(require 'init-hledger)
-;;(require 'init-mu4e)
-(require 'init-notmuch)
 
 ;;; init.el ends here
 (put 'upcase-region 'disabled nil)

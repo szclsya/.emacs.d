@@ -3,12 +3,17 @@
 ;;; Code:
 
 (use-package rustic
+  :defer t
+  :hook
+  ((rust-mode rust-ts-mode) . (lambda () (require 'rustic)))
   :custom
   (rustic-lsp-client 'eglot)
   (rustic-cargo-use-last-stored-arguments t))
 
 (use-package eglot
-  :hook ((rust-ts-mode . (lambda () (rustic-mode eglot-ensure)))))
+  :ensure nil
+  :hook ((rust-mode . eglot-ensure)
+         (rust-ts-mode . eglot-ensure)))
 
 (use-package cargo
   :after rust-mode

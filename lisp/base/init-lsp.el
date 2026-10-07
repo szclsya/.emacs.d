@@ -18,10 +18,10 @@
      :documentFormattingProvider
      :documentRangeFormattingProvider
      :documentOnTypeFormattingProvider
-     :colorProvider)
+     :colorProvider))
    :config
    ;; Disable jsonrpc log
-   (fset #'jsonrpc--log-event #'ignore)))
+   (fset #'jsonrpc--log-event #'ignore))
 
 (use-package eglot-booster
   :vc (:url "https://github.com/jdtsmith/eglot-booster" :branch "main")

@@ -9,11 +9,15 @@
   :hook
   ((prog-mode . flymake-mode)))
 
+(use-package sideline)
+
 (use-package sideline-flymake
   :hook (flymake-mode . sideline-mode)
   :custom
   (sideline-flymake-display-mode 'line)
-  (sideline-backends-right '(sideline-flymake)))
+  (sideline-backends-right '(sideline-flymake))
+  (sideline-delay 0.2)
+  )
 
 (use-package flymake-collection)
 

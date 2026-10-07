@@ -87,7 +87,6 @@
   ;; Always have the same width
   (corfu-min-width 80)
   (corfu-max-width corfu-min-width)
-  (completion-style '(basic))
   (corfu-preselect 'directory)
   ;; Orderless
   (corfu-separator ?\s)
@@ -114,14 +113,6 @@
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
-
-(use-package treesit-auto
-  :after emacs
-  :custom
-  (treesit-auto-install 'prompt)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'nil)
-  (global-treesit-auto-mode t))
 
 (use-package emacs
   :init

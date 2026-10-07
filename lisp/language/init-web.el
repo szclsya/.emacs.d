@@ -12,22 +12,22 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
 
-(use-package js2-mode
-  :defer 2
-  :custom
-  (js-indent-level 2))
+(setq js-indent-level 2)
 
-(use-package typescript-mode)
+(use-package js2-mode
+  :defer t)
+
+(use-package typescript-mode
+  :defer t)
 
 (use-package json-mode
-  :defer 2
-  :custom
-  (js-indent-level 2))
+  :defer t)
 
 (use-package sass-mode
-  :defer 2)
+  :defer t)
 
-(use-package yaml-mode)
+(use-package yaml-mode
+  :defer t)
 
 (provide 'init-web)
 ;;; init-web.el ends here
